@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import SignInForm from './components/SignInForm'
+import SignInForm from './components/SignInForm';
 
 function App() {
   return (
