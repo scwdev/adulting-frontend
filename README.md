@@ -15,4 +15,13 @@ An interactive "to-do" list app where users can input tasks with full CRUD funct
 - [architecture](https://app.moqups.com/JZARfVe4Tx/view/page/ad64222d5)
 
 ### Additional Resources:
+#### Affirmation API
 - https://affirmations-dev.herokuapp.com/ (https://github.com/annthurium/affirmations)
+#### Colour Palette:
+![image of colour palette](./images/colour-palette.png)
+- #2D3319,
+- #517664,
+- #9FD8CB
+- #946E83
+- #B4A6AB
+
