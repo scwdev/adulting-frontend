@@ -5,4 +5,4 @@ const SignInForm = (props) => {
     return <h2>Sign In Form Component</h2>
 }
 
-export defualt SignInForm
+export default SignInForm
