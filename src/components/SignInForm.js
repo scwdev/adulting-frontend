@@ -2,7 +2,16 @@ import React from 'react'
 import {useForm} from 'react-hook-form'
 
 const SignInForm = (props) => {
-    return <h2>Sign In Form Component</h2>
+    return (
+         <form>
+             <input {...register("username")}/>
+             <input {...register("password")}/>
+             <input {...register("name")}/>
+             <input {...register("email")}/>
+             <input type="Submit"/>
+             
+        </form>
+    )
 }
 
 export default SignInForm
