@@ -1,8 +1,6 @@
 # Adulting
 #### For all the stuff you can't remember when you did it last... (call your mom)
 
-![gif](url.gif)
-
 ## Project Links
 
 - [github repo link](https://github.com/scwdev/adulting-frontend)
@@ -15,31 +13,6 @@ An interactive "to-do" list app where users can input tasks with full CRUD funct
 
 - [wireframe](https://app.moqups.com/UibAumEbX3/view/page/ad64222d5)
 - [architecture](https://app.moqups.com/JZARfVe4Tx/view/page/ad64222d5)
-
-### MVP
-- 
-- 
-- 
-
-### PostMVP
-- 
-- 
-- 
-- 
-
-### Functionality
-
-| Component | Priority | Estimated Time | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| Init repo | H | 0.5hrs | 0.5hrs |
-
-| Total | H | ??? | ??? | ??? |
-
-### Components
-
-| Component | Description | 
-| --- | :---: |  
-||| 
 
 ### Additional Resources:
 - https://affirmations-dev.herokuapp.com/ (https://github.com/annthurium/affirmations)
