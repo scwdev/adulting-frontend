@@ -10,7 +10,6 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
       <input type="password" placeholder="Password" {...register("Password", {})} />
-
       <input type="submit" />
     </form>
   );
