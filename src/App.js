@@ -1,13 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import { Route, Link, Switch } from "react-router-dom";
 import SignInForm from './components/SignInForm';
 import SignUpForm from './components/SignUpForm';
 import Logo from './components/Logo';
+import Homepage from './pages/Homepage';
 
 function App() {
 
 const url = "https://adulting-backend.herokuapp.com";
 const [todo, setTodo] = React.useState([]);
+
+const emptyTodo = {
+  username: "",
+  name: "",
+  frequency: "",
+  countdown: "",
+  tags: "",
+  checklist: ""
+};
+
+const [selectedTodo, setSelectedTodo] = React.useState(emptyTodo);
 
 // GET
 const getTodo = () => {
@@ -46,6 +60,10 @@ const handleUpdate = (todo) => {
   });
 };
 
+const selectTodo = (todo) => {
+  setSelectedTodo(todo);
+};
+
 // DELETE
 const deleteWeed = (todo) => {
   fetch(url + "/todo/" + todo._id, {
@@ -61,6 +79,7 @@ return (
       <h1>#adulting is hard</h1>
       <SignInForm url={url}/>
       <SignUpForm url={url}/>
+      <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
       <Logo />
     </div>
   );
