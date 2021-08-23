@@ -3,10 +3,15 @@ import { Route, Link, Switch } from "react-router-dom";
 
 import './App.css';
 
-import SignInForm from './components/SignInForm';
-import SignUpForm from './components/SignUpForm';
-import Logo from './components/Logo';
 import Homepage from './pages/Homepage';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import TaskList from "./pages/TaskList";
+import OneTask from "./pages/OneTask";
+import CreateUpdate from "./pages/CreateUpdate";
+
+import Logo from './components/Logo';
+import Nav from "./components/Nav";
 
 function App() {
 
@@ -85,13 +90,40 @@ const deleteWeed = (todo) => {
   });
 };
   
+const logCheck = () => {
+  if (authZ.token) {
+    return (
+      <div>
+        <Nav />
+        <Switch>
+          {/* homepage */}
+          <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
+          {/* taskList */}
+          <Route path="/mylist" render={() => (<TaskList />)} />
+          {/* single task */}
+          <Route path="/task/:id" render={() => (<OneTask/>)} />
+          {/* create/update task */}
+          <Route path="/edit/:id" render={() => (<CreateUpdate/>)} />
+        </Switch>
+      </div>
+    )
+  } else {
+    return (
+      <Switch>
+        {/* signup */}
+        <Route exact path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
+        {/* login */}
+        <Route path="/" render={(rp) => (<SignIn {...rp} url={url} setAuthZ={setAuthZ} />)} />
+      </Switch>
+    )
+  }
+}
 
-return (
+
+  return (
     <div className="App">
       <h1>#adulting is hard</h1>
-      <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
-      <SignInForm url={url} setAuthZ={setAuthZ} />
-      <SignUpForm url={url} setAuthZ={setAuthZ} />
+      {logCheck()}
       <Logo />
     </div>
   );
