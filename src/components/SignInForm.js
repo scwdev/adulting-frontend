@@ -1,19 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function SignInForm(props) {
+const SignInForm = (props) => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const signIn = async (data) => {
-    const response = await fetch( props.url + "/login", {
+    const response = await fetch( props.url + "/user/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
     })
-    console.log(response.json());
+    const auth = await response.json()
+    props.setAuthZ({username: data.username, token: auth.token})
   }
 
   // console.log(errors);
@@ -27,3 +28,5 @@ export default function SignInForm(props) {
     </form>
   );
 }
+
+export default SignInForm
