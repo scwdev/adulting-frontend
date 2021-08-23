@@ -15,10 +15,10 @@ import Logo from './components/Logo';
 function App() {
 
 const url = "https://adulting-backend.herokuapp.com";
-const [ todo, setTodo ] = useState([]);
+const [ task, setTask ] = useState([]);
 const [ authZ, setAuthZ ] = useState({username: null, token: null})
 
-const emptyTodo = {
+const emptyTask = {
   username: "",
   name: "",
   frequency: "",
@@ -27,65 +27,65 @@ const emptyTodo = {
   checklist: ""
 };
 
-const [selectedTodo, setSelectedTodo] = React.useState(emptyTodo);
+const [selectedTask, setSelectedTask] = React.useState(emptyTask);
 
 // GET
-const getTodo = () => {
-  fetch(url + "/todo", {
+const getTask = () => {
+  fetch(url + "/tasks", {
     headers: {
       "authorization": authZ.token,
     },
   })
   .then((response) => response.json())
   .then((data) => {
-    setTodo(data);
+    setTask(data);
   });
 };
 
-useEffect(() => getTodo(), []);
+useEffect(() => getTask(), []);
 
 // CREATE
-const handleCreate = (newTodo) => {
-  fetch(url + "/todo", {
+const handleCreate = (newTask) => {
+  fetch(url + "/tasks", {
     method: "post",
     headers: {
       "authorization": authZ.token,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(newTodo),
+    body: JSON.stringify(newTask),
   }).then(() => {
-    getTodo();
+    getTask();
   });
 };
 
 // UPDATE
-const handleUpdate = (todo) => {
-  fetch(url + "/todo/" + todo._id, {
+const handleUpdate = (task) => {
+  fetch(url + "/tasks/" + task._id, {
     method: "put",
     headers: {
       "authorization": authZ.token,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(todo),
+    body: JSON.stringify(task),
   }).then(() => {
-    getTodo();
+    getTask();
   });
 };
 
-const selectTodo = (todo) => {
-  setSelectedTodo(todo);
+const selectTask = (task) => {
+  setSelectedTask(task);
 };
 
 // DELETE
-const deleteWeed = (todo) => {
-  fetch(url + "/todo/" + todo._id, {
+const deleteWeed = (task) => {
+  fetch(url + "/tasks/" + task._id, {
     method: "delete",
     headers: {
       "authorization": authZ.token,
       "Content-Type": "application/json"
     },
   }).then(() => {
-    getTodo();
+    getTask();
   });
 };
   
