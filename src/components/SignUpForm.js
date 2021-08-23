@@ -1,19 +1,42 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function SignUpForm() {
+const SignUpForm = (props) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  // console.log(errors);
+
+  const signUp = async (data) => {
+    // create new user
+    await fetch( props.url + "/user/signup", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    // login the new user
+    const response = await fetch( props.url + "/user/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    // send authZ token to App as state
+    const auth = await response.json()
+    props.setAuthZ({username: data.username, token: auth.token})
+  }
+  
+  console.log(errors);
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(signUp)}>
         <h2>Sign-Up!</h2>
-      <input type="text" placeholder="Name" {...register("Name", {required: true, maxLength: 80})} />
-      <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
-      <input type="password" placeholder="Password" {...register("Password", {})} />
-
+      {/* <input type="text" placeholder="Name" {...register("Name", {required: true, maxLength: 80})} /> */}
+      <input type="text" placeholder="Email" {...register("username", {required: true, pattern: /^\S+@\S+$/i})} />
+      <input type="password" placeholder="Password" {...register("password", {})} />
       <input type="submit" />
     </form>
   );
 }
+
+export default SignUpForm
