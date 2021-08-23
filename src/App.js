@@ -11,7 +11,6 @@ import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
 
 import Logo from './components/Logo';
-import Nav from "./components/Nav";
 
 function App() {
 
@@ -93,19 +92,16 @@ const deleteWeed = (todo) => {
 const logCheck = () => {
   if (authZ.token) {
     return (
-      <div>
-        <Nav />
-        <Switch>
-          {/* homepage */}
-          <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
-          {/* taskList */}
-          <Route path="/mylist" render={() => (<TaskList />)} />
-          {/* single task */}
-          <Route path="/task/:id" render={() => (<OneTask/>)} />
-          {/* create/update task */}
-          <Route path="/edit/:id" render={() => (<AddEdit/>)} />
-        </Switch>
-      </div>
+      <Switch>
+        {/* homepage */}
+        <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
+        {/* taskList */}
+        <Route path="/mylist" render={() => (<TaskList />)} />
+        {/* single task */}
+        <Route path="/task/:id" render={() => (<OneTask/>)} />
+        {/* create/update task */}
+        <Route path="/edit/:id" render={() => (<AddEdit/>)} />
+      </Switch>
     )
   } else {
     return (
