@@ -89,7 +89,7 @@ const deleteWeed = (todo) => {
 return (
     <div className="App">
       <h1>#adulting is hard</h1>
-      <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
+      <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
       <SignInForm url={url} setAuthZ={setAuthZ} />
       <SignUpForm url={url} setAuthZ={setAuthZ} />
       <Logo />
