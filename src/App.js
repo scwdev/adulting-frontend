@@ -90,25 +90,40 @@ const deleteWeed = (todo) => {
   });
 };
   
+const logCheck = () => {
+  if (authZ.token) {
+    return (
+      <div>
+        <Nav />
+        <Switch>
+          {/* homepage */}
+          <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
+          {/* taskList */}
+          <Route path="/mylist" render={() => (<TaskList />)} />
+          {/* single task */}
+          <Route path="/task/:id" render={() => (<OneTask/>)} />
+          {/* create/update task */}
+          <Route path="/edit/:id" render={() => (<CreateUpdate/>)} />
+        </Switch>
+      </div>
+    )
+  } else {
+    return (
+      <Switch>
+        {/* signup */}
+        <Route exact path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
+        {/* login */}
+        <Route path="/" render={(rp) => (<SignIn {...rp} url={url} setAuthZ={setAuthZ} />)} />
+      </Switch>
+    )
+  }
+}
+
 
   return (
     <div className="App">
       <h1>#adulting is hard</h1>
-      <Nav/>
-      <Switch>
-        {/* homepage */}
-        <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
-        {/* login */}
-        <Route path="/login" render={(rp) => (<SignIn {...rp} url={url} setAuthZ={setAuthZ} />)} />
-        {/* signup */}
-        <Route path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
-        {/* taskList */}
-        <Route path="/mylist" render={() => (<TaskList />)} />
-        {/* single task */}
-        <Route path="/task/:id" render={() => (<OneTask/>)} />
-        {/* create/update task */}
-        <Route path="/edit/:id" render={() => (<CreateUpdate/>)} />
-      </Switch>
+      {logCheck()}
       <Logo />
     </div>
   );
