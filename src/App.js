@@ -97,13 +97,13 @@ const logCheck = () => {
         <Nav />
         <Switch>
           {/* homepage */}
-          <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
+          <Route exact path="/" render={(rp) => (<Homepage {...rp}/>)} />
           {/* taskList */}
           <Route path="/mylist" render={() => (<TaskList />)} />
           {/* single task */}
           <Route path="/task/:id" render={() => (<OneTask/>)} />
           {/* create/update task */}
-          <Route path="/edit/:id" render={() => (<AddEdit/>)} />
+          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} handleSubmit={handleCreate}/>)} />
         </Switch>
       </div>
     )
