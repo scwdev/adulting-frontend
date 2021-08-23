@@ -7,8 +7,11 @@ import Homepage from './pages/Homepage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import TaskList from "./pages/TaskList";
+import OneTask from "./pages/OneTask";
+import CreateUpdate from "./pages/CreateUpdate";
 
 import Logo from './components/Logo';
+import Nav from "./components/Nav";
 
 function App() {
 
@@ -91,6 +94,7 @@ const deleteWeed = (todo) => {
   return (
     <div className="App">
       <h1>#adulting is hard</h1>
+      <Nav/>
       <Switch>
         {/* homepage */}
         <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
@@ -101,9 +105,9 @@ const deleteWeed = (todo) => {
         {/* taskList */}
         <Route path="/mylist" render={() => (<TaskList />)} />
         {/* single task */}
-        {/* <Route path="/:id" render={() => ()} /> */}
+        <Route path="/task/:id" render={() => (<OneTask/>)} />
         {/* create/update task */}
-        {/* <Route path="/edit" render={() => ()} /> */}
+        <Route path="/edit/:id" render={() => (<CreateUpdate/>)} />
       </Switch>
       <Logo />
     </div>
