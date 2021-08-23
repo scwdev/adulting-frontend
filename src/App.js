@@ -3,10 +3,12 @@ import { Route, Link, Switch } from "react-router-dom";
 
 import './App.css';
 
-import SignInForm from './components/SignInForm';
-import SignUpForm from './components/SignUpForm';
-import Logo from './components/Logo';
 import Homepage from './pages/Homepage';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import TaskList from "./pages/TaskList";
+
+import Logo from './components/Logo';
 
 function App() {
 
@@ -86,12 +88,23 @@ const deleteWeed = (todo) => {
 };
   
 
-return (
+  return (
     <div className="App">
       <h1>#adulting is hard</h1>
-      <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
-      <SignInForm url={url} setAuthZ={setAuthZ} />
-      <SignUpForm url={url} setAuthZ={setAuthZ} />
+      <Switch>
+        {/* homepage */}
+        <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
+        {/* login */}
+        <Route path="/login" render={(rp) => (<SignIn {...rp} url={url} setAuthZ={setAuthZ} />)} />
+        {/* signup */}
+        <Route path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
+        {/* taskList */}
+        <Route path="/mylist" render={() => (<TaskList />)} />
+        {/* single task */}
+        {/* <Route path="/:id" render={() => ()} /> */}
+        {/* create/update task */}
+        {/* <Route path="/edit" render={() => ()} /> */}
+      </Switch>
       <Logo />
     </div>
   );

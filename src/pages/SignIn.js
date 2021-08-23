@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const SignInForm = (props) => {
+const SignIn = (props) => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -29,4 +29,4 @@ const SignInForm = (props) => {
   );
 }
 
-export default SignInForm
+export default SignIn

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const SignUpForm = (props) => {
+const SignUp = (props) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const signUp = async (data) => {
@@ -39,4 +39,4 @@ const SignUpForm = (props) => {
   );
 }
 
-export default SignUpForm
+export default SignUp
