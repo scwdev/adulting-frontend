@@ -5,7 +5,7 @@ const AddEdit = () => {
     
     
     return (
-        <Link to={`/`}><button>Add/Edit</button></Link>
+        <div>Add Edit</div>
 
     )
 }
