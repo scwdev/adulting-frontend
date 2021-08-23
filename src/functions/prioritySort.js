@@ -1,10 +1,3 @@
-//// input days between instances as a number, output Date object set as current date + days
-//// const countdown = (days) => {
-////     const finish = new Date()
-////     finish.setDate(finish.getDate() + days)
-////     return finish
-//// }
-
 // input array of objects with a {frequency: Number of days} key and a {lastDone: Date} key
 const prioritySort = (array) => {
   // the number of ms since a given date
