@@ -8,7 +8,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
-import CreateUpdate from "./pages/CreateUpdate";
+import AddEdit from "./pages/AddEdit";
 
 import Logo from './components/Logo';
 import Nav from "./components/Nav";
@@ -103,7 +103,7 @@ const logCheck = () => {
           {/* single task */}
           <Route path="/task/:id" render={() => (<OneTask/>)} />
           {/* create/update task */}
-          <Route path="/edit/:id" render={() => (<CreateUpdate/>)} />
+          <Route path="/edit/:id" render={() => (<AddEdit/>)} />
         </Switch>
       </div>
     )
