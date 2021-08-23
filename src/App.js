@@ -27,7 +27,11 @@ const [selectedTodo, setSelectedTodo] = React.useState(emptyTodo);
 
 // GET
 const getTodo = () => {
-  fetch(url + "/todo")
+  fetch(url + "/todo", {
+    headers: {
+      "authorization": authZ.token,
+    },
+  })
   .then((response) => response.json())
   .then((data) => {
     setTodo(data);
@@ -41,7 +45,8 @@ const handleCreate = (newTodo) => {
   fetch(url + "/todo", {
     method: "post",
     headers: {
-      "Content-Type": "application/json",
+      "authorization": authZ.token,
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(newTodo),
   }).then(() => {
@@ -54,6 +59,7 @@ const handleUpdate = (todo) => {
   fetch(url + "/todo/" + todo._id, {
     method: "put",
     headers: {
+      "authorization": authZ.token,
       "Content-Type": "application/json"
     },
     body: JSON.stringify(todo),
@@ -70,6 +76,10 @@ const selectTodo = (todo) => {
 const deleteWeed = (todo) => {
   fetch(url + "/todo/" + todo._id, {
     method: "delete",
+    headers: {
+      "authorization": authZ.token,
+      "Content-Type": "application/json"
+    },
   }).then(() => {
     getTodo();
   });
