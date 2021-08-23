@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import React from "react";
+import React, { useState, useEffect } from "react"
 import { Route, Link, Switch } from "react-router-dom";
+
+import './App.css';
+
 import SignInForm from './components/SignInForm';
 import SignUpForm from './components/SignUpForm';
 import Logo from './components/Logo';
@@ -10,7 +11,8 @@ import Homepage from './pages/Homepage';
 function App() {
 
 const url = "https://adulting-backend.herokuapp.com";
-const [todo, setTodo] = React.useState([]);
+const [ todo, setTodo ] = useState([]);
+const [ authZ, setAuthZ ] = useState({username: null, token: null})
 
 const emptyTodo = {
   username: "",
@@ -32,7 +34,7 @@ const getTodo = () => {
   });
 };
 
-React.useEffect(() => getTodo(), []);
+useEffect(() => getTodo(), []);
 
 // CREATE
 const handleCreate = (newTodo) => {
@@ -77,9 +79,9 @@ const deleteWeed = (todo) => {
 return (
     <div className="App">
       <h1>#adulting is hard</h1>
-      <SignInForm url={url}/>
-      <SignUpForm url={url}/>
       <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
+      <SignInForm url={url} setAuthZ={setAuthZ} />
+      <SignUpForm url={url} setAuthZ={setAuthZ} />
       <Logo />
     </div>
   );
