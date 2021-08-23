@@ -97,7 +97,7 @@ const logCheck = () => {
         <Nav />
         <Switch>
           {/* homepage */}
-          <Route exact path="/" render={(rp) => (<Homepage {...rp} />)} />
+          <Route exact path="/" render={(rp) => (<Homepage {...rp} handleSubmit={handleCreate}/>)} />
           {/* taskList */}
           <Route path="/mylist" render={() => (<TaskList />)} />
           {/* single task */}
