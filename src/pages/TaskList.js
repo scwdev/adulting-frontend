@@ -18,7 +18,7 @@ const TaskList = (props) => {
         return (
             tasks.map((item,index) => (
                 <li>
-                    <Link to={`/task/${item._id}`}>{item.name}</Link>
+                    <Link to={`/edit/${item._id}`}>{item.name}</Link>
                     <button onClick={() => {resetTimer(item)}}>Did it!</button>
                 </li>                
             ))

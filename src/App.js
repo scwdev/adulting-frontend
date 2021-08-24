@@ -43,7 +43,11 @@ const getTasks = async () => {
   setTasks(prioritySort(data));
 };
 
-useEffect(async () => {await getTasks()}, [authZ]);
+useEffect(async () => {
+  if (authZ.token){
+    await getTasks()
+  }
+}, [authZ]);
 
 const getOneTask = async (input) => {
   const response = await fetch(url + "/tasks/" + input, {
@@ -102,7 +106,6 @@ const deleteTask = (input) => {
   
 const logCheck = () => {
   if (authZ.token) {
-    console.log(tasks)
     return (
         <Switch>
           {/* homepage */}
