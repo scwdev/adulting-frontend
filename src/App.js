@@ -11,7 +11,7 @@ import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
 
-import Logo from './components/Logo';
+// import Logo from './components/Logo';
 
 const App = () => {
 
@@ -130,7 +130,6 @@ const logCheck = () => {
 
   return (
     <div className="App">
-      {/* <Nav /> */}
       <h1>#adulting is hard</h1>
       {logCheck()}
   
