@@ -7,6 +7,9 @@ import '../styles/home.scss'
 
 
 const Homepage = (props) => {
+
+    const topId = props?.tasks[0]?._id
+
     return (
         <div className="home">
             <Logo lo="homeLogo"/> 
@@ -14,7 +17,7 @@ const Homepage = (props) => {
             <div className="homeButtonContainer">
             <Link to="/new"><button className="addTasksButton">Add a New Task</button></Link>
             <Link to="/mylist"><button className="taskListButton">Your Task List</button></Link>
-            <Link to="task/:id"><button className="oneTaskButton">If you only have time for one thing...</button></Link>
+            <Link to={`task/${topId}`} ><button className="oneTaskButton">If you only have time for one thing...</button></Link>
             </div>
     </div>
     )

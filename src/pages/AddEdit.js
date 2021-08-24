@@ -45,8 +45,10 @@ const AddEdit = (props) => {
     }
 
     if (initial === "") {
+      console.log("ding create")
     props.handleCreate(data)
     } else {
+      console.lost("ding update")
     props.handleUpdate(data)
     } 
     setInitial("")
@@ -78,7 +80,7 @@ const AddEdit = (props) => {
           <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
         </label>
         <br />
-        <input type="text" {...register("checklist")}/>
+        {/* <input type="text" {...register("checklist")}/> */}
         <br />
         <input type="submit" value="Set Reminder" />
       </form>

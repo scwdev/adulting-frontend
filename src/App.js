@@ -109,7 +109,7 @@ const logCheck = () => {
     return (
         <Switch>
           {/* homepage */}
-          <Route exact path="/" render={(rp) => (<Homepage {...rp}/>)} />
+          <Route exact path="/" render={(rp) => (<Homepage {...rp} tasks={tasks}/>)} />
           {/* taskList */}
           <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
           {/* single task */}
