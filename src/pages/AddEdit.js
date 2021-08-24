@@ -1,28 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function App(props) {
+import Nav from '../components/Nav';
+
+const AddEdit = (props) => {
+  const [ initial, setInitial ] = useState("")
   const { register, handleSubmit, formState: { errors } } = useForm();
-//   const onSubmit = data => console.log(data);
-  console.log(errors);
-  
+
+  // console.log(errors);
   const addEdit = (data) => {
-    data = {...data, username: props.username, lastDone: Date.now()}
-    console.log(data)
-    props.handleSubmit(data)
+    //TODO "new Date(data.lastDone)" returns date off by 4 hours. needs a fix
+    const lastDone = data.lastDone === "" ? new Date() : Date.parse(data.lastDone)
+    data = {
+      ...data,
+      username: props.username,
+      lastDone: lastDone,
+      frequency: data.frequency.number*data.frequency.multiplier
+    }
+    props.handleCreate(data)
+    props.history.push("/mylist")
   }
 
   return (
-    <form onSubmit={handleSubmit(addEdit)}>
-      <input type="text" placeholder="Task Name" {...register("name", {required: true, maxLength: 80})} />
-      <input type="number" placeholder="Frequency" {...register("frequency", {required: true, maxLength: 100})} />
-      {/* <select {...register("tags", { required: true })}>
-        <option value="Category 1">Category 1</option>
-        <option value=" Category 2"> Category 2</option>
-      </select>
-      <input type="text" placeholder="Checklist" {...register("checklist")} /> */}
-
-      <input type="submit" />
-    </form>
+    <div>
+      <Nav />
+      <form onSubmit={handleSubmit(addEdit)}>
+        <label>I want to
+          <input type="text" placeholder="do a thing" {...register("name", {required: true})} />
+        </label>
+        <br />
+        <label>
+          Every 
+          <input type="number" placeholder="0" {...register("frequency.number", {required: true})} />
+          <select {...register("frequency.multiplier")}>
+            <option value="1">Days</option>
+            <option value="7">Weeks</option>
+            <option value="28">Months</option>
+            <option value="365">Years</option>
+          </select>.
+        </label>
+        <br />
+        <label for="lastDone">I last did that on
+          <input type="date" placeholder="datetime" {...register("lastDone", {})} />
+        </label>
+        <br />
+        <input type="submit" value="Set Reminder" />
+      </form>
+    </div>
   );
 }
+
+export default AddEdit
