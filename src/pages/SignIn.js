@@ -27,7 +27,7 @@ const SignIn = (props) => {
 
   // const  = () => { 
 
-  console.log(errors);
+  // console.log(errors);
   
   return (
     <div>

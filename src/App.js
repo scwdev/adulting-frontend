@@ -12,37 +12,45 @@ import AddEdit from "./pages/AddEdit";
 
 import Logo from './components/Logo';
 
-function App() {
+const App = () => {
 
 const url = "https://adulting-backend.herokuapp.com";
-const [ task, setTask ] = useState([]);
+const [ tasks, setTasks ] = useState([]);
 const [ authZ, setAuthZ ] = useState({username: null, token: null})
 
-const emptyTask = {
-  username: "",
-  name: "",
-  frequency: "",
-  countdown: "",
-  tags: "",
-  checklist: ""
-};
+// const emptyTask = {
+//   username: "",
+//   name: "",
+//   frequency: "",
+//   countdown: "",
+//   tags: "",
+//   checklist: ""
+// };
 
-const [selectedTask, setSelectedTask] = React.useState(emptyTask);
+// const [selectedTask, setSelectedTask] = React.useState(emptyTask);
 
 // GET
-const getTask = () => {
-  fetch(url + "/tasks", {
+const getTasks = async () => {
+  const response = await fetch(url + "/tasks", {
     headers: {
-      "authorization": `bearer ${authZ.token}`,
-    },
+      "authorization": `bearer ${authZ.token}`
+    }
   })
-  .then((response) => response.json())
-  .then((data) => {
-    setTask(data);
-  });
+  const data = await response.json()
+  setTasks(data);
 };
 
-useEffect(() => getTask(), []);
+useEffect(async () => {await getTasks()}, [authZ]);
+
+const getOneTask = async (input) => {
+  const response = await fetch(url + "/tasks/" + input, {
+    headers: {
+      "authorization": `bearer ${authZ.token}`
+    }
+  })
+  const data = await response.json()
+  return data
+};
 
 // CREATE
 const handleCreate = (newTask) => {
@@ -54,53 +62,56 @@ const handleCreate = (newTask) => {
     },
     body: JSON.stringify(newTask),
   }).then(() => {
-    getTask();
+    getTasks();
   });
 };
 
 // UPDATE
-const handleUpdate = (task) => {
-  fetch(url + "/tasks/" + task._id, {
+const handleUpdate = (input) => {
+  fetch(url + "/tasks/" + input._id, {
     method: "put",
     headers: {
       "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(task),
+    body: JSON.stringify(input),
   }).then(() => {
-    getTask();
+    getTasks();
   });
 };
 
-const selectTask = (task) => {
-  setSelectedTask(task);
-};
+// const selectTask = (input) => {
+//   setSelectedTask(input);
+// };
 
 // DELETE
-const deleteWeed = (task) => {
-  fetch(url + "/tasks/" + task._id, {
+const deleteTask = (input) => {
+  fetch(url + "/tasks/" + input._id, {
     method: "delete",
     headers: {
       "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
   }).then(() => {
-    getTask();
+    getTasks();
   });
 };
   
 const logCheck = () => {
   if (authZ.token) {
+    console.log(tasks)
     return (
         <Switch>
           {/* homepage */}
           <Route exact path="/" render={(rp) => (<Homepage {...rp}/>)} />
           {/* taskList */}
-          <Route path="/mylist" render={() => (<TaskList />)} />
+          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
           {/* single task */}
           <Route path="/task/:id" render={() => (<OneTask/>)} />
-          {/* create/update task */}
-          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleCreate={handleCreate}/>)} />
+          {/* update existing task */}
+          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
+          {/* create new task */}
+          <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleCreate={handleCreate}/>)} />
         </Switch>
     )
   } else {

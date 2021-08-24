@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Nav from '../components/Nav';
 
 const AddEdit = (props) => {
+  const [ initial, setInitial ] = useState("")
   const { register, handleSubmit, formState: { errors } } = useForm();
+
   // console.log(errors);
-  
   const addEdit = (data) => {
     //TODO "new Date(data.lastDone)" returns date off by 4 hours. needs a fix
-    const lastDone = data.lastDone === "" ? new Date() : new Date(data.lastDone)
+    const lastDone = data.lastDone === "" ? new Date() : Date.parse(data.lastDone)
     data = {
       ...data,
       username: props.username,
@@ -17,6 +18,7 @@ const AddEdit = (props) => {
       frequency: data.frequency.number*data.frequency.multiplier
     }
     props.handleCreate(data)
+    props.history.push("/mylist")
   }
 
   return (
