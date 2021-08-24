@@ -29,7 +29,7 @@ const OneTask = (props) => {
             <div>Last Done: {isoParse(item.lastDone)}</div>
             <div>Frequency: {item.frequency}</div>
             <div className="checklist">
-                <ul>{item.checklist[0].name}{item.checklist[0].checked}</ul>
+                <ul>{item?.checklist[0].name}{item?.checklist[0].checked}</ul>
             </div>
         </div>
         )))
