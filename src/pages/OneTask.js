@@ -23,14 +23,14 @@ const OneTask = (props) => {
     return (
         match.map((item, index) => (
         <div>
-            <Nav/>
+            <Nav tasks={props.tasks}/>
             <h1>{item.name}</h1>
             <small>Affirmation</small>
             <div>Last Done: {isoParse(item.lastDone)}</div>
             <div>Frequency: {item.frequency}</div>
-            <div className="checklist">
+            {/* <div className="checklist">
                 <ul>{item?.checklist[0].name}{item?.checklist[0].checked}</ul>
-            </div>
+            </div> */}
         </div>
         )))
     }

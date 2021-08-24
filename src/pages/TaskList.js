@@ -30,7 +30,7 @@ const TaskList = (props) => {
     return (
         <div className="taskListContainer">
             <Logo lo="taskListLogo"/>
-            <Nav nav="taskListNav"/>
+            <Nav nav="taskListNav" tasks={props.tasks}/>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
