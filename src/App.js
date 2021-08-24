@@ -13,6 +13,8 @@ import AddEdit from "./pages/AddEdit";
 
 import Logo from './components/Logo';
 
+import { prioritySort } from "./functions/prioritySort";
+
 const App = () => {
 
 const url = "https://adulting-backend.herokuapp.com";
@@ -38,7 +40,7 @@ const getTasks = async () => {
     }
   })
   const data = await response.json()
-  setTasks(data);
+  setTasks(prioritySort(data));
 };
 
 useEffect(async () => {await getTasks()}, [authZ]);
