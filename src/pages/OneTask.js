@@ -2,6 +2,8 @@ import React from "react"
 
 import Nav from "../components/Nav"
 
+import { isoParse } from "../functions/isoParse"
+
 const OneTask = (props) => {
 
 
@@ -15,18 +17,20 @@ const OneTask = (props) => {
     
      
     const loaded = () => {
+    
+    
+
     return (
         match.map((item, index) => (
         <div>
             <Nav/>
             <h1>{item.name}</h1>
             <small>Affirmation</small>
-            <div>{item.lastDone}</div>
-            <div>{item.frequency}</div>
+            <div>Last Done: {isoParse(item.lastDone)}</div>
+            <div>Frequency: {item.frequency}</div>
             <div className="checklist">
-                
                 <ul>{item.checklist[0].name}{item.checklist[0].checked}</ul>
-                </div>
+            </div>
         </div>
         )))
     }

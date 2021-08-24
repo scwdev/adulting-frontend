@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 
 import Nav from '../components/Nav';
 
+import { isoParse } from '../functions/isoParse';
+
 const AddEdit = (props) => {
   const [ initial, setInitial ] = useState("")
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -29,16 +31,6 @@ const AddEdit = (props) => {
       setInitial("")
     }
   }, [props.tasks])
-
-  const isoParse = (ms) => {
-    if (typeof ms === "number") {
-      const dateObj = new Date(ms)
-      const isoArr = dateObj.toISOString().split("T")
-      return isoArr[0]
-    } else {
-      return null
-    }
-  }
 
   // console.log(errors);
   const addEdit = (data) => {
