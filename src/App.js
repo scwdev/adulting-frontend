@@ -92,7 +92,7 @@ const handleUpdate = (input) => {
 // };
 
 // DELETE
-const deleteTask = (input) => {
+const handleDelete = (input) => {
   fetch(url + "/tasks/" + input._id, {
     method: "delete",
     headers: {
@@ -111,7 +111,7 @@ const logCheck = () => {
           {/* homepage */}
           <Route exact path="/" render={(rp) => (<Homepage {...rp} tasks={tasks}/>)} />
           {/* taskList */}
-          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
+          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} handleDelete={handleDelete} />)} />
           {/* single task */}
           <Route path="/task/:id" render={(rp) => (<OneTask {...rp} tasks={tasks} getOneTask={getOneTask}/>)} />
           {/* update existing task */}
