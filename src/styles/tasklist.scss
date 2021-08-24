@@ -1,0 +1,19 @@
+.taskListLogo {
+    width: 10em;
+    height: 10em;
+}
+
+.taskListContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskListNav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}

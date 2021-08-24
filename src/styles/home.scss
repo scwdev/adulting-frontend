@@ -1,0 +1,80 @@
+$mediumgreen: #517664;
+$darkpink: #946e83;
+$lightgreen: #9fd8cb;
+$darkgreen: #2d3319;
+
+.homeLogo {
+    width: 10em;
+    height: 10em;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.home h1 {
+   text-align: center;
+   font-family: 'Libre Baskerville', serif;
+   margin: 8px;
+}
+.home h1 span {
+    font-style: italic;
+}
+.homeButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addTasksButton{
+    background-color: $mediumgreen;
+    border: solid $mediumgreen 1.5px;
+    font-family: 'Open Sans', sans-serif;
+    height: 90px;
+    width: 150px;
+    border-radius: 5px 20px 5px;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.5s;
+    box-shadow: 8px 8px 2px 1px #444444;
+}
+
+.taskListButton{
+    background-color: $darkpink;
+    border: solid $darkpink 1.5px;
+    font-family: 'Open Sans', sans-serif;
+    height: 90px;
+    width: 150px;
+    border-radius: 5px 20px 5px;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.5s;
+    box-shadow: 8px 8px 2px 1px #444444;
+}
+
+.oneTaskButton{
+    background-color: $lightgreen;
+    border: solid $lightgreen 1.5px;
+    font-family: 'Open Sans', sans-serif;
+    height: 100px;
+    width: 180px;
+    border-radius: 5px 20px 5px;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.5s;
+    box-shadow: 8px 8px 2px 1px #444444;
+}
+
+.oneTaskButton:hover{
+    transform: scale(1.2);
+}
+.taskListButton:hover{
+    transform: scale(1.2);
+}
+.addTasksButton:hover{
+    transform: scale(1.2);
+}
