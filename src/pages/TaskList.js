@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from 'react-router-dom'
+import Logo from '../components/Logo'
+import "../styles/tasklist.scss"
 
 import Nav from "../components/Nav"
 
@@ -26,8 +28,9 @@ const TaskList = (props) => {
     }
 
     return (
-        <div>
-            <Nav/>
+        <div className="taskListContainer">
+            <Logo lo="taskListLogo"/>
+            <Nav nav="taskListNav"/>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
