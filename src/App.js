@@ -11,101 +11,108 @@ import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
 
 import Logo from './components/Logo';
-import Nav from "./components/Nav";
 
-function App() {
+const App = () => {
 
 const url = "https://adulting-backend.herokuapp.com";
-const [ todo, setTodo ] = useState([]);
+const [ tasks, setTasks ] = useState([]);
 const [ authZ, setAuthZ ] = useState({username: null, token: null})
 
-const emptyTodo = {
-  username: "",
-  name: "",
-  frequency: "",
-  countdown: "",
-  tags: "",
-  checklist: ""
-};
+// const emptyTask = {
+//   username: "",
+//   name: "",
+//   frequency: "",
+//   countdown: "",
+//   tags: "",
+//   checklist: ""
+// };
 
-const [selectedTodo, setSelectedTodo] = React.useState(emptyTodo);
+// const [selectedTask, setSelectedTask] = React.useState(emptyTask);
 
 // GET
-const getTodo = () => {
-  fetch(url + "/todo", {
+const getTasks = async () => {
+  const response = await fetch(url + "/tasks", {
     headers: {
-      "authorization": authZ.token,
-    },
+      "authorization": `bearer ${authZ.token}`
+    }
   })
-  .then((response) => response.json())
-  .then((data) => {
-    setTodo(data);
-  });
+  const data = await response.json()
+  setTasks(data);
 };
 
-useEffect(() => getTodo(), []);
+useEffect(async () => {await getTasks()}, [authZ]);
+
+const getOneTask = async (input) => {
+  const response = await fetch(url + "/tasks/" + input, {
+    headers: {
+      "authorization": `bearer ${authZ.token}`
+    }
+  })
+  const data = await response.json()
+  return data
+};
 
 // CREATE
-const handleCreate = (newTodo) => {
-  fetch(url + "/todo", {
+const handleCreate = (newTask) => {
+  fetch(url + "/tasks", {
     method: "post",
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(newTodo),
+    body: JSON.stringify(newTask),
   }).then(() => {
-    getTodo();
+    getTasks();
   });
 };
 
 // UPDATE
-const handleUpdate = (todo) => {
-  fetch(url + "/todo/" + todo._id, {
+const handleUpdate = (input) => {
+  fetch(url + "/tasks/" + input._id, {
     method: "put",
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(todo),
+    body: JSON.stringify(input),
   }).then(() => {
-    getTodo();
+    getTasks();
   });
 };
 
-const selectTodo = (todo) => {
-  setSelectedTodo(todo);
-};
+// const selectTask = (input) => {
+//   setSelectedTask(input);
+// };
 
 // DELETE
-const deleteWeed = (todo) => {
-  fetch(url + "/todo/" + todo._id, {
+const deleteTask = (input) => {
+  fetch(url + "/tasks/" + input._id, {
     method: "delete",
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
   }).then(() => {
-    getTodo();
+    getTasks();
   });
 };
   
 const logCheck = () => {
   if (authZ.token) {
+    console.log(tasks)
     return (
-      <div>
-        <Nav />
         <Switch>
           {/* homepage */}
           <Route exact path="/" render={(rp) => (<Homepage {...rp}/>)} />
           {/* taskList */}
-          <Route path="/mylist" render={() => (<TaskList />)} />
+          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
           {/* single task */}
           <Route path="/task/:id" render={() => (<OneTask/>)} />
-          {/* create/update task */}
-          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} handleSubmit={handleCreate}/>)} />
+          {/* update existing task */}
+          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
+          {/* create new task */}
+          <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleCreate={handleCreate}/>)} />
         </Switch>
-      </div>
     )
   } else {
     return (

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
 
 const SignIn = (props) => {
 
@@ -14,18 +16,31 @@ const SignIn = (props) => {
       body: JSON.stringify(data)
     })
     const auth = await response.json()
-    props.setAuthZ({username: data.username, token: auth.token})
+    if (auth.error) {
+      window.alert(auth.error)
+    }
+    if (auth.token) {
+      props.setAuthZ({username: data.username, token: auth.token})
+      props.history.push('/')
+    }
   }
+
+  // const  = () => { 
 
   // console.log(errors);
   
   return (
-    <form onSubmit={handleSubmit(signIn)}>
-      <h2>Sign-In</h2>
-      <input type="text" placeholder="Email" {...register("username", {required: true, pattern: /^\S+@\S+$/i})} />
-      <input type="password" placeholder="Password" {...register("password", {})} />
-      <input type="submit" />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit(signIn)}>
+        <h2>Sign-In</h2>
+        <input type="text" placeholder="Email" {...register("username", {required: true, pattern: /^\S+@\S+$/i})} />
+        {errors.username && <p>please enter a valid email address</p>}
+        <input type="password" placeholder="Password" {...register("password", {required: true})} />
+        {errors.password && <p>please enter a password</p>}
+        <input type="submit" />
+      </form>
+      <Link to="/sign-up">Create a new account!</Link>
+    </div>
   );
 }
 

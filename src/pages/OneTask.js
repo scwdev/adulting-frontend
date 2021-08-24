@@ -1,8 +1,13 @@
 import React from "react"
 
+import Nav from "../components/Nav"
+
 const OneTask = (props) => {
     return (
-        "individual Task Page"
+        <div>
+            <Nav/>
+            "individual Task Page"
+        </div>
     )
 }
 
