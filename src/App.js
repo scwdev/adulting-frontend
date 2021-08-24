@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Route, Link, Switch } from "react-router-dom";
+import Nav from './components/Nav'
 
 import './App.css';
 
@@ -129,9 +130,10 @@ const logCheck = () => {
 
   return (
     <div className="App">
+      {/* <Nav /> */}
       <h1>#adulting is hard</h1>
       {logCheck()}
-      <Logo />
+  
     </div>
   );
 }
