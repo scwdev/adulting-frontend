@@ -11,7 +11,9 @@ const OneTask = (props) => {
 
    const match = props.tasks.filter(el => el._id === props.match.params.id)
     // console.log('match-', match)
+    // console.log('checklist-', match[0].checklist)
     
+     
     const loaded = () => {
     return (
         match.map((item, index) => (
@@ -21,7 +23,10 @@ const OneTask = (props) => {
             <small>Affirmation</small>
             <div>{item.lastDone}</div>
             <div>{item.frequency}</div>
-            <div>{item.checklist}</div>
+            <div className="checklist">
+                
+                <ul>{item.checklist[0].name}{item.checklist[0].checked}</ul>
+                </div>
         </div>
         )))
     }
