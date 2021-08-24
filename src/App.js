@@ -135,7 +135,6 @@ const logCheck = () => {
 
   return (
     <div className="App">
-      <h1>#adulting is hard</h1>
       {logCheck()}
   
     </div>
