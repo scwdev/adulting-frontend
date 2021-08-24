@@ -58,7 +58,7 @@ const AddEdit = (props) => {
 
   return (
     <div>
-      <Nav />
+      <Nav tasks={props.tasks}/>
       <form onSubmit={handleSubmit(addEdit)}>
         <label>I want to
           <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />

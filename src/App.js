@@ -117,7 +117,7 @@ const logCheck = () => {
           {/* update existing task */}
           <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate} handleUpdate={handleUpdate}/>)} />
           {/* create new task */}
-          <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleCreate={handleCreate}/>)} />
+          <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
         </Switch>
     )
   } else {
