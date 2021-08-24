@@ -33,7 +33,7 @@ const [selectedTask, setSelectedTask] = React.useState(emptyTask);
 const getTask = () => {
   fetch(url + "/tasks", {
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
     },
   })
   .then((response) => response.json())
@@ -49,7 +49,7 @@ const handleCreate = (newTask) => {
   fetch(url + "/tasks", {
     method: "post",
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify(newTask),
@@ -63,7 +63,7 @@ const handleUpdate = (task) => {
   fetch(url + "/tasks/" + task._id, {
     method: "put",
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify(task),
@@ -81,7 +81,7 @@ const deleteWeed = (task) => {
   fetch(url + "/tasks/" + task._id, {
     method: "delete",
     headers: {
-      "authorization": authZ.token,
+      "authorization": `bearer ${authZ.token}`,
       "Content-Type": "application/json"
     },
   }).then(() => {
@@ -100,7 +100,7 @@ const logCheck = () => {
           {/* single task */}
           <Route path="/task/:id" render={() => (<OneTask/>)} />
           {/* create/update task */}
-          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleSubmit={handleCreate}/>)} />
+          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleCreate={handleCreate}/>)} />
         </Switch>
     )
   } else {
