@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo'
+import '../styles/signUp.scss'
 
 const SignUp = (props) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -31,9 +33,10 @@ const SignUp = (props) => {
   }
   
   return (
-    <div>
+    <div className="signUp">
+      <Logo lo="logo"/>
       <h2>Sign-Up!</h2>
-      <form onSubmit={handleSubmit(signUp)}>        
+      <form onSubmit={handleSubmit(signUp)} className="form">        
         <input type="text" placeholder="example@email.com" {...register("username", {required: true, pattern: /^\S+@\S+$/i})} />
         {errors.username && <p>please enter a valid email address</p>}
         <input type="password" placeholder="Password" {...register("password", {required: true, minLength: 8})} />

@@ -16,7 +16,7 @@ const TaskList = (props) => {
             props.handleUpdate(input)
         }
         return (
-            prioritySort(tasks).map((item,index) => (
+            tasks.map((item,index) => (
                 <li>
                     <Link to={`/task/${item._id}`}>{item.name}</Link>
                     <button onClick={() => {resetTimer(item)}}>Did it!</button>

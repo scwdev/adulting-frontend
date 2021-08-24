@@ -11,7 +11,9 @@ import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
 
-import Logo from './components/Logo';
+// import Logo from './components/Logo';
+
+import { prioritySort } from "./functions/prioritySort";
 
 const App = () => {
 
@@ -38,10 +40,14 @@ const getTasks = async () => {
     }
   })
   const data = await response.json()
-  setTasks(data);
+  setTasks(prioritySort(data));
 };
 
-useEffect(async () => {await getTasks()}, [authZ]);
+useEffect(async () => {
+  if (authZ.token){
+    await getTasks()
+  }
+}, [authZ]);
 
 const getOneTask = async (input) => {
   const response = await fetch(url + "/tasks/" + input, {
@@ -100,7 +106,6 @@ const deleteTask = (input) => {
   
 const logCheck = () => {
   if (authZ.token) {
-    console.log(tasks)
     return (
         <Switch>
           {/* homepage */}
@@ -108,7 +113,7 @@ const logCheck = () => {
           {/* taskList */}
           <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
           {/* single task */}
-          <Route path="/task/:id" render={() => (<OneTask/>)} />
+          <Route path="/task/:id" render={(rp) => (<OneTask {...rp} tasks={tasks} getOneTask={getOneTask}/>)} />
           {/* update existing task */}
           <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
           {/* create new task */}
@@ -130,8 +135,6 @@ const logCheck = () => {
 
   return (
     <div className="App">
-      {/* <Nav /> */}
-      <h1>#adulting is hard</h1>
       {logCheck()}
   
     </div>

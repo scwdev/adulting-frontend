@@ -4,7 +4,7 @@
 ## Project Links
 
 - [github repo link](https://github.com/scwdev/adulting-frontend)
-- [deployment link](url)
+- [deployment link](https://adulting.vercel.app/)
 
 ## Project Description
 An interactive "to-do" list app where users can input tasks with full CRUD functionality. In addition, the user can specifiy how often each task "should" be completed, and the app will prioritise overdue tasks.
