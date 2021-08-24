@@ -7,6 +7,10 @@ const AddEdit = (props) => {
   const [ initial, setInitial ] = useState("")
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  if (props.match.params.id) {
+    console.log{'ding!'}
+  }
+
   // console.log(errors);
   const addEdit = (data) => {
     //TODO "new Date(data.lastDone)" returns date off by 4 hours. needs a fix
