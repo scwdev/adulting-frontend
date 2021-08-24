@@ -8,9 +8,9 @@ const AddEdit = (props) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   useEffect(() => {
-    if (props.match.params.id) {
+    if (props.match.params.id && props.tasks.length > 0) {
       const data = props.tasks.filter((item) => (item._id === props.match.params.id))
-      const freq = data[0].frequency
+      const freq = data[0]?.frequency
       switch (true) {
         case freq%365 === 0:
           data[0].frequency = {number: freq/365, multiplier: 365}
@@ -29,6 +29,16 @@ const AddEdit = (props) => {
       setInitial("")
     }
   }, [props.tasks])
+
+  const isoParse = (ms) => {
+    if (typeof ms === "number") {
+      const dateObj = new Date(ms)
+      const isoArr = dateObj.toISOString().split("T")
+      return isoArr[0]
+    } else {
+      return null
+    }
+  }
 
   // console.log(errors);
   const addEdit = (data) => {
@@ -64,8 +74,9 @@ const AddEdit = (props) => {
           </select>.
         </label>
         <br />
+        {/* {Date.toString(1629775054578)} */}
         <label for="lastDone">I last did that on
-          <input type="date" defaultValue={Date.now()} placeholder="datetime" {...register("lastDone", {})} />
+          <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
         </label>
         <br />
         <input type="submit" value="Set Reminder" />
