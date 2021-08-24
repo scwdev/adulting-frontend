@@ -43,7 +43,14 @@ const AddEdit = (props) => {
       lastDone: lastDone,
       frequency: data.frequency.number*data.frequency.multiplier
     }
+
+    if (initial === "") {
     props.handleCreate(data)
+    } else {
+    props.handleUpdate(data)
+    } 
+    setInitial("")
+
     props.history.push("/mylist")
   }
 
@@ -70,6 +77,8 @@ const AddEdit = (props) => {
         <label for="lastDone">I last did that on
           <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
         </label>
+        <br />
+        <input type="text" {...register("checklist")}/>
         <br />
         <input type="submit" value="Set Reminder" />
       </form>
