@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Nav from '../components/Nav';
+import Affirm from "../components/Affirm"
 
 import { isoParse } from '../functions/isoParse';
 
@@ -90,6 +91,7 @@ const AddEdit = (props) => {
         <br />
         <input type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
       </form>
+      <Affirm />
     </div>
   );
 }

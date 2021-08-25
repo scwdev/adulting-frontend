@@ -11,7 +11,7 @@ import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
 
-// import Logo from './components/Logo';
+import Affirm from "./components/Affirm"
 
 import { prioritySort } from "./functions/prioritySort";
 
@@ -136,7 +136,6 @@ const logCheck = () => {
   return (
     <div className="App">
       {logCheck()}
-  
     </div>
   );
 }

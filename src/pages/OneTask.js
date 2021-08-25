@@ -4,6 +4,7 @@ import "../styles/oneTask.scss"
 import Logo from '../components/Logo'
 
 import Nav from "../components/Nav"
+import Affirm from "../components/Affirm"
 
 import { isoParse } from "../functions/isoParse"
 import { dayParse } from "../functions/dayParse"
@@ -30,7 +31,7 @@ const OneTask = (props) => {
             <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
             <button>Delete</button>
             </div>
-            
+            <Affirm />
         </div>
         )))
     }
@@ -39,7 +40,9 @@ const OneTask = (props) => {
         return (<div>Loading ...</div>)
     }
 
-    return match.length > 0 ? loaded() : loading()
+    return (
+        match.length > 0 ? loaded() : loading()
+    )
 }
 
 
