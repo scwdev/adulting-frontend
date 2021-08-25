@@ -32,26 +32,35 @@ const AddEdit = (props) => {
     }
   }, [props.tasks])
 
+  const select = (num) => {
+    if (initial?.frequency?.multiplier === num) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   // console.log(errors);
-  const addEdit = (data) => {
-    //TODO "new Date(data.lastDone)" returns date off by 4 hours. needs a fix
-    console.log(data.lastDone)
+  const addEdit = async (data) => {
     const lastDone = data.lastDone === "" ? new Date() : Date.parse(data.lastDone)
     data = {
       ...data,
+      _id: initial._id,
       username: props.username,
       lastDone: lastDone,
       frequency: data.frequency.number*data.frequency.multiplier
     }
-
     if (initial === "") {
-    props.handleCreate(data)
-    } else {
-    props.handleUpdate(data)
-    } 
-    setInitial("")
+      props.handleCreate(data)
+      props.history.push('/mylist')
 
-    props.history.push("/mylist")
+    } else {
+      props.handleUpdate(data)
+      setInitial("")
+      props.history.push(`/task/${initial._id}`)
+    } 
+    
+    
   }
 
   return (
@@ -65,11 +74,11 @@ const AddEdit = (props) => {
         <label>
           Every 
           <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
-          <select defaultValue={initial?.frequency?.multiplier} {...register("frequency.multiplier")}>
-            <option value="1">Days</option>
-            <option value="7">Weeks</option>
-            <option value="30">Months</option>
-            <option value="365">Years</option>
+          <select {...register("frequency.multiplier")}>
+            <option value="1" selected={select(1)} >Days</option>
+            <option value="7" selected={select(7)}>Weeks</option>
+            <option value="30" selected={select(30)}>Months</option>
+            <option value="365" selected={select(365)} >Years</option>
           </select>.
         </label>
         <br />
