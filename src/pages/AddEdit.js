@@ -43,7 +43,7 @@ const AddEdit = (props) => {
 
   // console.log(errors);
   const addEdit = async (data) => {
-    const lastDone = data.lastDone === "" ? new Date() : Date.parse(data.lastDone)
+    const lastDone = (data.lastDone === "" ? Date.now() : Date.parse(data.lastDone))
     data = {
       ...data,
       _id: initial._id,
