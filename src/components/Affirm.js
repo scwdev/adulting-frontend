@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import "../styles/affirm.scss"
 
 const Affirm = (props) => {
 
