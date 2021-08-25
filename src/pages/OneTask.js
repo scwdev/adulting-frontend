@@ -15,29 +15,32 @@ const OneTask = (props) => {
     const match = props.tasks.filter(el => el._id === props.match.params.id)
      
     const loaded = () => {
-
-    return (
-        match.map((item, index) => (
-        <div className="oneTask">
-            <Logo lo="oneTaskLogo"/>
-            <Nav tasks={props.tasks}/>
-            <span>My top priority is:</span>
-            <h1>{item.name}</h1>
-            <div className="lastCompleted">
-                Last Completed: {dayParse(Math.round((item.lastDone - Date.now())/86400000))} ago
+    
+        const resetTimer = (input) => {
+            input = {...input, lastDone: Date.now()}
+            props.handleUpdate(input)
+        }
+        return (
+            match.map((item, index) => (
+            <div className="oneTask">
+                <Logo lo="oneTaskLogo"/>
+                <Nav tasks={props.tasks}/>
+                <h1>{item.name}</h1>
+                <div className="lastCompleted">
+                    Last Completed: {dayParse(Math.round((item.lastDone - Date.now())/86400000))} ago
+                </div>
+                <div>
+                    Frequency: Every {dayParse(item.frequency)}
+                </div>
+                <ProgBar task={item} width="10" height="1" color="grey" background="lightgrey"/>
+                <div>
+                    <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
+                    <Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" />
+                </div>
+                <Affirm />
             </div>
-            <div>
-                Frequency: Every {dayParse(item.frequency)}
-            </div>
-            <ProgBar task={item} width="10" height="1" color="grey" background="lightgrey"/>
-            <div>
-                <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
-                <Button className="delete-button" handleClick={() => {console.log("ding")}} text="ding" />
-            </div>
-            <Affirm />
-        </div>
-        )))
-    }
+            )))
+        }
 
     const loading = () => {
         return (<div>Loading ...</div>)

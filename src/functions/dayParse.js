@@ -30,9 +30,14 @@ const dayParse = (days) => {
             `${w === 1 ? "" : `${w} `}week${isEss(w)}${d > 0 ? " and " + d + " day" + isEss(d) : ""}`
         )
     }
-    if (days < 11) {
+    if (days < 11 && days !== 0) {
         return (
             `${days === 1 ? "" : `${days} `}day${isEss(days)}`
+        )
+    }
+    if (days === 0) {
+        return (
+            ""
         )
     }
 }
