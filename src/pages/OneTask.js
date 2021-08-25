@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/oneTask.scss"
 import Logo from '../components/Logo'
+import Button from '../components/Button'
 
 import Nav from "../components/Nav"
 import Affirm from "../components/Affirm"
@@ -21,7 +22,7 @@ const OneTask = (props) => {
         <div className="oneTask">
             <Logo lo="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
-            <span>YOU CAN DO IT</span>
+            <span>You can do it!</span>
             <h1>{item.name}</h1>
             <div>Last Completed: {isoParse(item.lastDone)}</div>
             <div>Frequency: Every {dayParse(item.frequency)}</div>
@@ -31,7 +32,7 @@ const OneTask = (props) => {
             </div> */}
             <div>
             <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
-            <button>Delete</button>
+            <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
             </div>
             <Affirm />
         </div>

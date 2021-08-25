@@ -1,0 +1,21 @@
+$mediumgreen: #517664;
+
+
+.nav span{
+    font-family: 'Libre Baskerville', serif;
+    margin: 10px;
+    color: black;
+    font-size: 1em;
+}
+ a {
+     text-decoration: none;
+ }
+
+ .nav {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     background-color: $mediumgreen;
+     height: 3em;
+     width: 100%;
+ }

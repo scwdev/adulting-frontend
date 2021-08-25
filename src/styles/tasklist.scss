@@ -17,3 +17,45 @@
     text-decoration: none;
     color: black;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    display: flex;
+
+    align-items: center;
+    height: 50px;
+    border-top: 1px solid black;
+}
+
+.list1 {
+    width: 100px;
+}
+
+.tasklist {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.done-button {
+    border: none;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.delete-button {
+    border: none;
+}
+
+h8 {
+    border-radius: 35%;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 30px;
+    background-color: rgb(148, 110, 131, 0.5);
+}

@@ -19,15 +19,19 @@ const TaskList = (props) => {
             props.handleUpdate(input)
         }
         return (
+            
             tasks.map((item,index) => (
+                
                 <li>
-                    <Link to={`/task/${item._id}`}>{item.name}</Link>
-                    <Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" />
-                    <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
+
+                    <div className="list1"><Link className="tasklist" to={`/task/${item._id}`}>{item.name}</Link></div>
+                    <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
+                    <div><Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" /></div>
                     <br />
                     <ProgBar task={item} width="10" height=".5" color="grey" background="lightgrey"/>
-                </li>                
+                </li> 
             ))
+
         )
     }
 
@@ -35,6 +39,7 @@ const TaskList = (props) => {
         <div className="taskListContainer">
             <Logo lo="taskListLogo"/>
             <Nav nav="taskListNav" tasks={props.tasks}/>
+            <h8>Task List </h8>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
