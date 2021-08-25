@@ -14,14 +14,14 @@ const AddEdit = (props) => {
       const data = props.tasks.filter((item) => (item._id === props.match.params.id))
       const freq = data[0]?.frequency
       switch (true) {
-        case freq%365 === 0:
-          data[0].frequency = {number: freq/365, multiplier: 365}
+        case freq >= 365:
+          data[0].frequency = {number: Math.round(freq/365), multiplier: 365}
           break;
-        case freq%28  === 0:
-          data[0].frequency = {number: freq/28, multiplier: 28}
+        case freq >= 30:
+          data[0].frequency = {number: Math.round(freq/30), multiplier: 30}
           break;
-        case freq%7 === 0:
-          data[0].frequency = {number: freq/7, multiplier: 7}
+        case freq >=7 :
+          data[0].frequency = {number: Math.round(freq/7), multiplier: 7}
           break;
         default:
           data[0].frequency = {number: freq, multiplier: 1} 
@@ -45,10 +45,8 @@ const AddEdit = (props) => {
     }
 
     if (initial === "") {
-      console.log("ding create")
     props.handleCreate(data)
     } else {
-      console.lost("ding update")
     props.handleUpdate(data)
     } 
     setInitial("")
@@ -70,19 +68,18 @@ const AddEdit = (props) => {
           <select defaultValue={initial?.frequency?.multiplier} {...register("frequency.multiplier")}>
             <option value="1">Days</option>
             <option value="7">Weeks</option>
-            <option value="28">Months</option>
+            <option value="30">Months</option>
             <option value="365">Years</option>
           </select>.
         </label>
         <br />
-        {/* {Date.toString(1629775054578)} */}
         <label for="lastDone">I last did that on
           <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
         </label>
         <br />
         {/* <input type="text" {...register("checklist")}/> */}
         <br />
-        <input type="submit" value="Set Reminder" />
+        <input type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
       </form>
     </div>
   );
