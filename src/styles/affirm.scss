@@ -1,18 +1,15 @@
-$lightgreen: #9fd8cb;
-$darkgreen: #2d3319;
-$darkpink: #946e83;
+@use "./vars.scss";
 
 .affirmation{
-    margin: 30px;
+    margin: 30px 0;
     padding: 1em;
     height: 100%;
-    width: 70%;
-    border-radius: 5px 20px 5px;
+    width: 100vw;
     font-family: 'Merienda One', cursive;
     text-align: center;
     font-weight: bold;
-    background-color: #c6a3b6;
-    color: #6b4f5e;
-    box-shadow: 3px 3px 3px 3px $darkpink;
+    background-color: vars.$lightpink;
+    color: vars.$darkerpink;
+    box-shadow: 3px 3px 3px 3px vars.$darkpink;
     font-size: 1.3em;
 }
