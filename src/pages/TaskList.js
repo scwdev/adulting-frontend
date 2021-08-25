@@ -18,13 +18,16 @@ const TaskList = (props) => {
             props.handleUpdate(input)
         }
         return (
+            
             tasks.map((item,index) => (
+                
                 <li>
-                    <Link to={`/task/${item._id}`}>{item.name}</Link>
-                    <Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" />
-                    <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
-                </li>                
+                    <div className="list1"><Link className="tasklist" to={`/task/${item._id}`}>{item.name}</Link></div>
+                    <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
+                    <div><Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" /></div>
+                </li>                  
             ))
+
         )
     }
 
@@ -32,6 +35,7 @@ const TaskList = (props) => {
         <div className="taskListContainer">
             <Logo lo="taskListLogo"/>
             <Nav nav="taskListNav" tasks={props.tasks}/>
+            <h8>Task List </h8>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
