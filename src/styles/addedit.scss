@@ -1,3 +1,5 @@
+@use "./vars.scss";
+
 .addeditLogo {
     width: 10em;
     height: 10em;
@@ -12,18 +14,21 @@
     margin: 20px auto;
     }
 
-    h6 {
+    h1 {
     font-family: 'Open Sans', sans-serif;
     padding: 30px;
-
-    border-radius: 5px 20px 5px;
-
     font-size: 18px;
     font-weight: bold;
-    transition: 0.5s;
-    box-shadow: 8px 8px 2px 1px #444444;
     justify-self: center;
-    background-color: #517664;
+    text-align: center;
+    margin-top: 30px;
+    
+    }
+
+    .dropdown {
+        box-shadow: 3px 3px 2px 1px #444444;
+        font-family: 'Open Sans', sans-serif;
+        background-color: white;
     }
 
     .reminder {
@@ -31,12 +36,6 @@
     justify-self: center;
     border: none;
     box-shadow: 3px 3px 2px 1px #444444;
-    }
-
-    .dropdown {
-    box-shadow: 3px 3px 2px 1px #444444;
-    font-family: 'Open Sans', sans-serif;
-    background-color: white;
     }
 }
 
