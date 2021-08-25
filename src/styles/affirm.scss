@@ -1,0 +1,18 @@
+$lightgreen: #9fd8cb;
+$darkgreen: #2d3319;
+
+.affirmation{
+    margin: 10px;
+    padding: 1.5em;
+    box-sizing: padding-box;
+    border: 1px solid $darkgreen;
+    height: 100%;
+    width: 70%;
+    border-radius: 100%;
+    font-family: 'Petit Formal Script', cursive;
+    text-align: center;
+    font-weight: bold;
+    background-color: $darkgreen;
+    color: white;
+    box-shadow: 3px 3px 3px 3px white;
+}

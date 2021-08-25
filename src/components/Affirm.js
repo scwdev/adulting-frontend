@@ -59,7 +59,7 @@ const Affirm = (props) => {
     }
 
     return (
-        <div>
+        <div className="affirmation">
             {getAff()}
         </div>
         )
