@@ -32,14 +32,15 @@
     a {
         button {
             font-family: 'Open Sans', sans-serif;
-            height: 90px;
-            width: 150px;
-            border-radius: 5px 20px 5px;
+            height: 8em;
+            width: 8em;
+            padding:1em;
+            box-shadow: 5px 5px 7px rgba(33,33,33,.7);
             margin: 20px;
             font-size: 18px;
             font-weight: bold;
             transition: 0.5s;
-            box-shadow: 8px 8px 2px 1px #444444;
+
 
             &:hover {
                 transform: scale(1.2);
@@ -49,16 +50,19 @@
         .addTasksButton{
             background-color: vars.$mediumgreen;
             border: solid vars.$mediumgreen 1.5px;
+            transform: rotate(-6deg);
         }
         
         .taskListButton{
             background-color: vars.$darkpink;
             border: solid vars.$darkpink 1.5px;
+            transform: rotate(6deg);
         }
         
         .oneTaskButton{
             background-color: vars.$lightgreen;
             border: solid vars.$lightgreen 1.5px;
+            transform: rotate(-6deg);
         }
     }
 }
