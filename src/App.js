@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
+import Logout from "./pages/Logout";
 
 import ProgBar from "./components/ProgBar"
 
@@ -118,14 +119,16 @@ const logCheck = () => {
           <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate} handleUpdate={handleUpdate} handleDelete={handleDelete}/>)} />
           {/* create new task */}
           <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
+          <Route path="/logout" render={(rp) => (<Logout {...rp} setAuthZ={setAuthZ}/>)} />
         </Switch>
     )
-  } else {
+  } else if (authZ.token === null) {
     return (
       <Switch>
         {/* signup */}
-        <Route exact path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
+        <Route path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
         {/* login */}
+        <Route path="/logout" render={(rp) => (<Logout {...rp} setAuthZ={setAuthZ}/>)} />
         <Route path="/" render={(rp) => (<SignIn {...rp} url={url} setAuthZ={setAuthZ} />)} />
       </Switch>
     )
