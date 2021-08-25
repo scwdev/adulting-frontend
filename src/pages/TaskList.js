@@ -5,8 +5,7 @@ import "../styles/tasklist.scss"
 
 import Nav from "../components/Nav"
 import Button from "../components/Button"
-
-import { prioritySort } from "../functions/prioritySort"
+import Affirm from "../components/Affirm"
 
 const TaskList = (props) => {
 
@@ -36,6 +35,7 @@ const TaskList = (props) => {
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
+            <Affirm />
         </div>
     )
 }
