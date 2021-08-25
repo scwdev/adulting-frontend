@@ -1,82 +1,65 @@
-$mediumgreen: #517664;
-$darkpink: #946e83;
-$lightgreen: #9fd8cb;
-$darkgreen: #2d3319;
+@use "./vars.scss";
 
-.homeLogo {
-    width: 10em;
-    height: 10em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 .home {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-.home h1 {
-   text-align: center;
-   font-family: 'Libre Baskerville', serif;
-   margin: 8px;
-}
-.home h1 span {
-    font-style: italic;
-}
-.homeButtonContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.addTasksButton{
-    background-color: $mediumgreen;
-    border: solid $mediumgreen 1.5px;
-    font-family: 'Open Sans', sans-serif;
-    height: 90px;
-    width: 150px;
-    border-radius: 5px 20px 5px;
-    margin: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.5s;
-    box-shadow: 8px 8px 2px 1px #444444;
-}
+    
+    .homeLogo {
+        width: 10em;
+        height: 10em;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    h1 {
+       text-align: center;
+       font-family: 'Libre Baskerville', serif;
+       margin: 8px;
 
-.taskListButton{
-    background-color: $darkpink;
-    border: solid $darkpink 1.5px;
-    font-family: 'Open Sans', sans-serif;
-    height: 90px;
-    width: 150px;
-    border-radius: 5px 20px 5px;
-    margin: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.5s;
-    box-shadow: 8px 8px 2px 1px #444444;
-}
+       span {
+           font-style: italic;
+       }
+    }
 
-.oneTaskButton{
-    background-color: $lightgreen;
-    border: solid $lightgreen 1.5px;
-    font-family: 'Open Sans', sans-serif;
-    height: 100px;
-    width: 180px;
-    border-radius: 5px 20px 5px;
-    margin: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.5s;
-    box-shadow: 8px 8px 2px 1px #444444;
-}
+    .homeButtonContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.oneTaskButton:hover{
-    transform: scale(1.2);
-}
-.taskListButton:hover{
-    transform: scale(1.2);
-}
-.addTasksButton:hover{
-    transform: scale(1.2);
+    a {
+        button {
+            font-family: 'Open Sans', sans-serif;
+            height: 90px;
+            width: 150px;
+            border-radius: 5px 20px 5px;
+            margin: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.5s;
+            box-shadow: 8px 8px 2px 1px #444444;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        .addTasksButton{
+            background-color: vars.$mediumgreen;
+            border: solid vars.$mediumgreen 1.5px;
+        }
+        
+        .taskListButton{
+            background-color: vars.$darkpink;
+            border: solid vars.$darkpink 1.5px;
+        }
+        
+        .oneTaskButton{
+            background-color: vars.$lightgreen;
+            border: solid vars.$lightgreen 1.5px;
+        }
+    }
 }
