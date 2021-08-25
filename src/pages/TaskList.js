@@ -6,6 +6,7 @@ import "../styles/tasklist.scss"
 import Nav from "../components/Nav"
 import Button from "../components/Button"
 import Affirm from "../components/Affirm"
+import ProgBar from "../components/ProgBar"
 
 const TaskList = (props) => {
 
@@ -22,10 +23,13 @@ const TaskList = (props) => {
             tasks.map((item,index) => (
                 
                 <li>
+
                     <div className="list1"><Link className="tasklist" to={`/task/${item._id}`}>{item.name}</Link></div>
                     <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
                     <div><Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" /></div>
-                </li>                  
+                    <br />
+                    <ProgBar task={item} width="10" height=".5" color="grey" background="lightgrey"/>
+                </li> 
             ))
 
         )

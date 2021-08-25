@@ -6,6 +6,7 @@ import Button from '../components/Button'
 
 import Nav from "../components/Nav"
 import Affirm from "../components/Affirm"
+import ProgBar from "../components/ProgBar"
 
 import { isoParse } from "../functions/isoParse"
 import { dayParse } from "../functions/dayParse"
@@ -25,6 +26,7 @@ const OneTask = (props) => {
             <h1>{item.name}</h1>
             <div>Last Completed: {isoParse(item.lastDone)}</div>
             <div>Frequency: Every {dayParse(item.frequency)}</div>
+            <ProgBar task={item} width="10" height="1" color="grey" background="lightgrey"/>
             {/* <div className="checklist">
                 <ul>{item?.checklist[0].name}{item?.checklist[0].checked}</ul>
             </div> */}
