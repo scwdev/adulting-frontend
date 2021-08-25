@@ -5,7 +5,6 @@ import Logo from '../components/Logo'
 import '../styles/signIn.scss'
 
 const SignIn = (props) => {
-
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const signIn = async (data) => {

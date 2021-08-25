@@ -1,24 +1,16 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 import Nav from "../components/Nav"
 
 import { isoParse } from "../functions/isoParse"
+import { dayParse } from "../functions/dayParse"
 
 const OneTask = (props) => {
 
-
-
-    // console.log('tasks state-', props.tasks)
-    // console.log('props.match.params.id -', props.match.params.id)
-
-   const match = props.tasks.filter(el => el._id === props.match.params.id)
-    // console.log('match-', match)
-    // console.log('checklist-', match[0].checklist)
-    
+    const match = props.tasks.filter(el => el._id === props.match.params.id)
      
     const loaded = () => {
-    
-    
 
     return (
         match.map((item, index) => (
@@ -27,10 +19,11 @@ const OneTask = (props) => {
             <h1>{item.name}</h1>
             <small>Affirmation</small>
             <div>Last Done: {isoParse(item.lastDone)}</div>
-            <div>Frequency: {item.frequency}</div>
+            <div>Frequency: Every {dayParse(item.frequency)}</div>
             {/* <div className="checklist">
                 <ul>{item?.checklist[0].name}{item?.checklist[0].checked}</ul>
             </div> */}
+            <Link to={`/edit/${item._id}`}>Edit</Link>
         </div>
         )))
     }
