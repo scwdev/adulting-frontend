@@ -22,8 +22,9 @@ const OneTask = (props) => {
         <div className="oneTask">
             <Logo lo="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
+            <span>My top priority is:</span>
             <h1>{item.name}</h1>
-            <div>
+            <div className="lastCompleted">
                 Last Completed: {dayParse(Math.round((item.lastDone - Date.now())/86400000))} ago
             </div>
             <div>
