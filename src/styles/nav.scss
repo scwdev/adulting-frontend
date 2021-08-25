@@ -1,21 +1,23 @@
 $mediumgreen: #517664;
 
-
-.nav span{
-    font-family: 'Libre Baskerville', serif;
-    margin: 10px;
-    color: black;
-    font-size: 1em;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $mediumgreen;
+    height: 4em;
+    width: 100%;
+    border-bottom: 3px solid #2D3319;
+    border-top: 3px solid #2D3319;
 }
- a {
-     text-decoration: none;
+
+ .anav {
+    text-decoration: none;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 11px;
+    font-family: 'Libre Baskerville', serif;
+    color: black;
+    font-size: 14px;
  }
 
- .nav {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     background-color: $mediumgreen;
-     height: 3em;
-     width: 100%;
- }
