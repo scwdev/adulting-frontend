@@ -4,6 +4,7 @@ import Logo from '../components/Logo'
 import "../styles/tasklist.scss"
 
 import Nav from "../components/Nav"
+import Button from "../components/Button"
 
 import { prioritySort } from "../functions/prioritySort"
 
@@ -21,7 +22,8 @@ const TaskList = (props) => {
             tasks.map((item,index) => (
                 <li>
                     <Link to={`/task/${item._id}`}>{item.name}</Link>
-                    <button onClick={() => {resetTimer(item)}}>Did it!</button>
+                    <Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" />
+                    <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
                 </li>                
             ))
         )
@@ -30,7 +32,7 @@ const TaskList = (props) => {
     return (
         <div className="taskListContainer">
             <Logo lo="taskListLogo"/>
-            <Nav nav="taskListNav"/>
+            <Nav nav="taskListNav" tasks={props.tasks}/>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
