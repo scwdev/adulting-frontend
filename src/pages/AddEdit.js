@@ -31,7 +31,7 @@ const AddEdit = (props) => {
     } else {
       setInitial("")
     }
-  }, [props.tasks])
+  }, [props.match.params.id])
 
   const select = (num) => {
     if (initial?.frequency?.multiplier === num) {
@@ -60,8 +60,6 @@ const AddEdit = (props) => {
       setInitial("")
       props.history.push(`/task/${initial._id}`)
     } 
-    
-    
   }
 
   return (
