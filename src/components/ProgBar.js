@@ -16,8 +16,8 @@ const ProgBar = (props) => {
     const progress = progCalc(props.task)
     const width = props.width
     const height = props.height
-    const background = props.background
-    const color = props.color
+    const background = "#9fd8cb"
+    const color = "#946e83"
 
     const bar = (
         <div className="bar-background" style={{

@@ -1,16 +1,16 @@
 
-
-
 .oneTask{
     font-family: 'Libre Baskerville', serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .oneTaskLogo {
         width: 10em;
         height: 10em;
     }
+
     div {
         margin: 10px;
     }
@@ -22,5 +22,6 @@
         border: 1px solid black; 
         border-radius: 5px;
         //background-color: $darkpink;
+
     }
 }
