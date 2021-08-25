@@ -6,6 +6,7 @@ import "../styles/tasklist.scss"
 import Nav from "../components/Nav"
 import Button from "../components/Button"
 import Affirm from "../components/Affirm"
+import ProgBar from "../components/ProgBar"
 
 const TaskList = (props) => {
 
@@ -23,6 +24,8 @@ const TaskList = (props) => {
                     <Link to={`/task/${item._id}`}>{item.name}</Link>
                     <Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" />
                     <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
+                    <br />
+                    <ProgBar task={item} width="10" height=".5" color="grey" background="lightgrey"/>
                 </li>                
             ))
         )

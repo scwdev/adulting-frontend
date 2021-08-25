@@ -11,7 +11,7 @@ import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
 
-import Affirm from "./components/Affirm"
+import ProgBar from "./components/ProgBar"
 
 import { prioritySort } from "./functions/prioritySort";
 
