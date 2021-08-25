@@ -68,34 +68,25 @@ const AddEdit = (props) => {
     <div>
       <div className="logos"><Logo lo="addeditLogo"/></div>
       <Nav tasks={props.tasks}/>
-      
       <form className= "addedit" onSubmit={handleSubmit(addEdit)}>
-      
-        <h7>Add a Task</h7>
-        <label>I want to
-          <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
-        </label>
-        
-        <label>
-          Every 
-          <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
-          <select className="dropdown" {...register("frequency.multiplier")}>
-            <option value="1" selected={select(1)} >Days</option>
-            <option value="7" selected={select(7)}>Weeks</option>
-            <option value="30" selected={select(30)}>Months</option>
-            <option value="365" selected={select(365)} >Years</option>
-          </select>.
-        </label>
-        
-        <label for="lastDone">I last did that on
-          <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
-        </label>
-        
-        {/* <input type="text" {...register("checklist")}/> */}
-        
+      <h6>Add a Task</h6>
+      <label>I want to
+        <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
+      </label>
+      <label> Every 
+        <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
+        <select className="dropdown" {...register("frequency.multiplier")}>
+          <option value="1" selected={select(1)} >Days</option>
+          <option value="7" selected={select(7)}>Weeks</option>
+          <option value="30" selected={select(30)}>Months</option>
+          <option value="365" selected={select(365)} >Years</option>
+        </select>.
+      </label>
+      <label for="lastDone">I last did that on
+        <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
+      </label>
         <input className="reminder" type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
       </form>
-
       <div className="addeditaffirm"><Affirm /></div>
     </div>
   );
