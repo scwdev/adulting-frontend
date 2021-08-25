@@ -8,7 +8,6 @@ import Nav from "../components/Nav"
 import Affirm from "../components/Affirm"
 import ProgBar from "../components/ProgBar"
 
-import { isoParse } from "../functions/isoParse"
 import { dayParse } from "../functions/dayParse"
 
 const OneTask = (props) => {
@@ -33,7 +32,7 @@ const OneTask = (props) => {
             <ProgBar task={item} width="10" height="1" color="grey" background="lightgrey"/>
             <div>
                 <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
-                <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete" />
+                <Button className="delete-button" handleClick={() => {console.log("ding")}} text="ding" />
             </div>
             <Affirm />
         </div>
