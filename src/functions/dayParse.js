@@ -1,6 +1,8 @@
+// this function accepts a Number (of days) and returns an english phrase approximating the length of time that number represents
+
 const dayParse = (days) => {
     const isEss = (input) => {
-        if (input > 1) return "s"
+        if (input > 1 || input === 0) return "s"
         else return ""
     }
         days = Math.abs(days)
@@ -36,19 +38,3 @@ const dayParse = (days) => {
 }
 
 export { dayParse }
-
-
-
-
-
-
-
-// alt function
-// const epochStart = [1970,1,1]
-// const msDays = days*1000*60*60*24
-// const epoch = new Date(msDays)
-// const iso = epoch.toISOString().split("T")
-// const diff = iso[0].split("-").map((i,x) => (i-epochStart[x]))
-// return diff
-// }
-
