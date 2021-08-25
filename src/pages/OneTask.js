@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "../styles/oneTask.scss"
+import Logo from '../components/Logo'
 
 import Nav from "../components/Nav"
 import Affirm from "../components/Affirm"
@@ -15,16 +17,20 @@ const OneTask = (props) => {
 
     return (
         match.map((item, index) => (
-        <div>
+        <div className="oneTask">
+            <Logo lo="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
+            <span>YOU CAN DO IT</span>
             <h1>{item.name}</h1>
-            <small>Affirmation</small>
-            <div>Last Done: {isoParse(item.lastDone)}</div>
+            <div>Last Completed: {isoParse(item.lastDone)}</div>
             <div>Frequency: Every {dayParse(item.frequency)}</div>
             {/* <div className="checklist">
                 <ul>{item?.checklist[0].name}{item?.checklist[0].checked}</ul>
             </div> */}
-            <Link to={`/edit/${item._id}`}>Edit</Link>
+            <div>
+            <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
+            <button>Delete</button>
+            </div>
             <Affirm />
         </div>
         )))
