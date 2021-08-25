@@ -1,0 +1,26 @@
+.oneTaskLogo {
+    width: 10em;
+    height: 10em;
+}
+
+.oneTask{
+    font-family: 'Libre Baskerville', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.oneTask div {
+    margin: 10px;
+}
+
+
+.oneTask span {
+    margin: 10px;
+}
+
+.oneTask button{
+    font-family: 'Libre Bakersville', serif;
+    margin: 8px;
+}
