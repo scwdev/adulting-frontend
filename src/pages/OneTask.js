@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 import Nav from "../components/Nav"
+import Affirm from "../components/Affirm"
 
 import { isoParse } from "../functions/isoParse"
 import { dayParse } from "../functions/dayParse"
@@ -24,6 +25,7 @@ const OneTask = (props) => {
                 <ul>{item?.checklist[0].name}{item?.checklist[0].checked}</ul>
             </div> */}
             <Link to={`/edit/${item._id}`}>Edit</Link>
+            <Affirm />
         </div>
         )))
     }
@@ -32,7 +34,9 @@ const OneTask = (props) => {
         return (<div>Loading ...</div>)
     }
 
-    return match.length > 0 ? loaded() : loading()
+    return (
+        match.length > 0 ? loaded() : loading()
+    )
 }
 
 
