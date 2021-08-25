@@ -1,6 +1,8 @@
 .taskListLogo {
     width: 10em;
     height: 10em;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .taskListContainer {
@@ -30,7 +32,7 @@ li {
     flex-wrap: wrap;
     align-items: center;
     height: 100px;
-    border-top: 1px dotted black;
+    border-top: 1px solid black;
     justify-content: space-between;
 }
 
@@ -47,11 +49,14 @@ li {
 
 .done-button {
     border: none;
-    border-radius: 25%;
+    border-radius: 20px;
+    box-shadow: 2px 3px 2px 1px #444444;
     margin-left: 8px;
     margin-right: 4px;
     font-size: 15px;
     padding: 8px;
+    font-style: 'Open Sans', sans-serif;
+
 }
 
 .delete-button {
@@ -59,9 +64,14 @@ li {
 }
 
 h8 {
-    border-radius: 35%;
-    padding: 20px;
-    margin-top: 20px;
-    font-size: 30px;
-    background-color: rgb(148, 110, 131, 0.5);
+    background-color: #946e83;
+    border: solid #946e83 1.5px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 30px;
+    border-radius: 5px 20px 5px;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.5s;
+    box-shadow: 8px 8px 2px 1px #444444;
 }
