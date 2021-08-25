@@ -1,0 +1,20 @@
+$lightgreen: #9fd8cb;
+$darkgreen: #2d3319;
+$darkpink: #946e83;
+
+.affirmation{
+    margin: 30px;
+    padding: 1.5em;
+    box-sizing: padding-box;
+    // border: 1px solid $darkgreen;
+    height: 100%;
+    width: 70%;
+    border-radius: 5px 20px 5px;
+    font-family: 'Merienda One', cursive;
+    text-align: center;
+    font-weight: bold;
+    background-color: #c6a3b6;
+    color: #6b4f5e;
+    box-shadow: 3px 3px 3px 3px $darkpink;
+    font-size: 1.5em;
+}

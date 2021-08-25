@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import "../styles/affirm.scss"
 
 const Affirm = (props) => {
 
@@ -58,8 +59,8 @@ const Affirm = (props) => {
     }
 
     return (
-        <div>
-            {getAff()}
+        <div className="affirmation">
+            "{getAff()}"
         </div>
         )
 }
