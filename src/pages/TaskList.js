@@ -26,9 +26,7 @@ const TaskList = (props) => {
 
                     <div className="list1"><Link className="tasklist" to={`/task/${item._id}`}>{item.name}</Link></div>
                     <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
-                    <div><Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" /></div>
-                    <br />
-                    <ProgBar task={item} width="10" height=".5" color="grey" background="lightgrey"/>
+                    <ProgBar task={item} width="16" height=".5" color="grey" background="lightgrey"/>
                 </li> 
             ))
 
