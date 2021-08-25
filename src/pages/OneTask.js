@@ -22,7 +22,6 @@ const OneTask = (props) => {
         <div className="oneTask">
             <Logo lo="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
-            <span>You can do it!</span>
             <h1>{item.name}</h1>
             <div>
                 Last Completed: {dayParse(Math.round((item.lastDone - Date.now())/86400000))} ago
@@ -33,7 +32,7 @@ const OneTask = (props) => {
             <ProgBar task={item} width="10" height="1" color="grey" background="lightgrey"/>
             <div>
                 <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
-                <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
+                <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete" />
             </div>
             <Affirm />
         </div>

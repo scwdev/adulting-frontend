@@ -7,37 +7,37 @@
 
 .addedit {
     display: grid;
-}
 
-label {
+    label {
     margin: 20px auto;
-};
+    }
 
-h7 {
+    h6 {
     font-family: 'Open Sans', sans-serif;
     padding: 30px;
-    width: 150px;
+
     border-radius: 5px 20px 5px;
-    margin: 20px;
+
     font-size: 18px;
     font-weight: bold;
     transition: 0.5s;
     box-shadow: 8px 8px 2px 1px #444444;
     justify-self: center;
     background-color: #517664;
-}
+    }
 
-.reminder {
+    .reminder {
     width: 200px;
     justify-self: center;
     border: none;
     box-shadow: 3px 3px 2px 1px #444444;
-}
+    }
 
-.dropdown {
+    .dropdown {
     box-shadow: 3px 3px 2px 1px #444444;
     font-family: 'Open Sans', sans-serif;
     background-color: white;
+    }
 }
 
 .addeditaffirm {
