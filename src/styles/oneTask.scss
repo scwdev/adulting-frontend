@@ -1,7 +1,5 @@
-.oneTaskLogo {
-    width: 10em;
-    height: 10em;
-}
+
+
 
 .oneTask{
     font-family: 'Libre Baskerville', serif;
@@ -9,20 +7,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.oneTask div {
-    margin: 10px;
-}
-
-//this is for the affirmation
-// .oneTask span {
-//     margin: 10px;
-//     font-family: 'Petit Formal Script', cursive;
-//     font-weight: bold;
-// }
-
-.oneTask button{
-    font-family: 'Libre Bakersville', serif;
-    margin: 8px;
+    .oneTaskLogo {
+        width: 10em;
+        height: 10em;
+    }
+    div {
+        margin: 10px;
+    }
+    button{
+        font-family: 'Libre Bakersville', serif;
+        margin: 8px;
+        padding: 5px;
+        font-weight: bold;
+        border: 1px solid black; 
+        border-radius: 5px;
+        //background-color: $darkpink;
+    }
 }
