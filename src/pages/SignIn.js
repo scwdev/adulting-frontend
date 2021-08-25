@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-
+import Logo from '../components/Logo'
+import '../styles/signIn.scss'
 
 const SignIn = (props) => {
-
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const signIn = async (data) => {
@@ -30,8 +30,9 @@ const SignIn = (props) => {
   // console.log(errors);
   
   return (
-    <div>
-      <form onSubmit={handleSubmit(signIn)}>
+    <div className="signIn">
+      <Logo lo="signInLogo"/>
+      <form onSubmit={handleSubmit(signIn)} className="signInForm">
         <h2>Sign-In</h2>
         <input type="text" placeholder="Email" {...register("username", {required: true, pattern: /^\S+@\S+$/i})} />
         {errors.username && <p>please enter a valid email address</p>}

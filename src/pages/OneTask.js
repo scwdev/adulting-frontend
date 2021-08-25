@@ -1,27 +1,41 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import "../styles/oneTask.scss"
+import Logo from '../components/Logo'
+import Button from '../components/Button'
 
 import Nav from "../components/Nav"
+import Affirm from "../components/Affirm"
+import ProgBar from "../components/ProgBar"
+
+import { isoParse } from "../functions/isoParse"
+import { dayParse } from "../functions/dayParse"
 
 const OneTask = (props) => {
 
-
-
-    // console.log('tasks state-', props.tasks)
-    // console.log('props.match.params.id -', props.match.params.id)
-
-   const match = props.tasks.filter(el => el._id === props.match.params.id)
-    // console.log('match-', match)
-    
+    const match = props.tasks.filter(el => el._id === props.match.params.id)
+     
     const loaded = () => {
+
     return (
         match.map((item, index) => (
-        <div>
-            <Nav/>
+        <div className="oneTask">
+            <Logo lo="oneTaskLogo"/>
+            <Nav tasks={props.tasks}/>
+            <span>You can do it!</span>
             <h1>{item.name}</h1>
-            <small>Affirmation</small>
-            <div>{item.lastDone}</div>
-            <div>{item.frequency}</div>
-            <div>{item.checklist}</div>
+            <div>
+                Last Completed: {dayParse(Math.round((item.lastDone - Date.now())/86400000))} ago
+            </div>
+            <div>
+                Frequency: Every {dayParse(item.frequency)}
+            </div>
+            <ProgBar task={item} width="10" height="1" color="grey" background="lightgrey"/>
+            <div>
+                <Link to={`/edit/${item._id}`}><button>Edit</button></Link>
+                <Button className="delete-button" handleClick={() => {props.handleDelete(item)}} text="Delete :(" />
+            </div>
+            <Affirm />
         </div>
         )))
     }
@@ -30,7 +44,9 @@ const OneTask = (props) => {
         return (<div>Loading ...</div>)
     }
 
-    return match.length > 0 ? loaded() : loading()
+    return (
+        match.length > 0 ? loaded() : loading()
+    )
 }
 
 

@@ -1,26 +1,24 @@
-.signUp {
+.signInLogo {
+    width: 20em;
+    height: 20em;
+}
+
+.signIn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.logo {
-    width: 20em;
-    height: 20em;
-}
-.form {
+
+.signInForm{
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 10px;
+    margin: 10px;
 }
-input {
-    font-family: 'Libre Baskerville', serif;
-    margin: 5px;
-    padding: 3px;
-}
-.signUp h2 {
-    margin-top: 20px;
+
+.signInForm h2 {
     font-family: 'Libre Baskerville', serif;
 }

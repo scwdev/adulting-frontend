@@ -10,8 +10,9 @@ import SignUp from './pages/SignUp';
 import TaskList from "./pages/TaskList";
 import OneTask from "./pages/OneTask";
 import AddEdit from "./pages/AddEdit";
+import Logout from "./pages/Logout";
 
-// import Logo from './components/Logo';
+import ProgBar from "./components/ProgBar"
 
 import { prioritySort } from "./functions/prioritySort";
 
@@ -92,7 +93,7 @@ const handleUpdate = (input) => {
 // };
 
 // DELETE
-const deleteTask = (input) => {
+const handleDelete = (input) => {
   fetch(url + "/tasks/" + input._id, {
     method: "delete",
     headers: {
@@ -109,23 +110,25 @@ const logCheck = () => {
     return (
         <Switch>
           {/* homepage */}
-          <Route exact path="/" render={(rp) => (<Homepage {...rp}/>)} />
+          <Route exact path="/" render={(rp) => (<Homepage {...rp} tasks={tasks}/>)} />
           {/* taskList */}
-          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
+          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} handleDelete={handleDelete} />)} />
           {/* single task */}
-          <Route path="/task/:id" render={(rp) => (<OneTask {...rp} tasks={tasks} getOneTask={getOneTask}/>)} />
+          <Route path="/task/:id" render={(rp) => (<OneTask {...rp} tasks={tasks} getOneTask={getOneTask} handleDelete={handleDelete}/>)} />
           {/* update existing task */}
-          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
+          <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate} handleUpdate={handleUpdate} handleDelete={handleDelete}/>)} />
           {/* create new task */}
-          <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} handleCreate={handleCreate}/>)} />
+          <Route path="/new" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate}/>)} />
+          <Route path="/logout" render={(rp) => (<Logout {...rp} setAuthZ={setAuthZ}/>)} />
         </Switch>
     )
-  } else {
+  } else if (authZ.token === null) {
     return (
       <Switch>
         {/* signup */}
-        <Route exact path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
+        <Route path="/sign-up" render={(rp) => (<SignUp {...rp} url={url} setAuthZ={setAuthZ} />)} />
         {/* login */}
+        <Route path="/logout" render={(rp) => (<Logout {...rp} setAuthZ={setAuthZ}/>)} />
         <Route path="/" render={(rp) => (<SignIn {...rp} url={url} setAuthZ={setAuthZ} />)} />
       </Switch>
     )
@@ -135,9 +138,7 @@ const logCheck = () => {
 
   return (
     <div className="App">
-      <h1>#adulting is hard</h1>
       {logCheck()}
-  
     </div>
   );
 }

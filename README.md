@@ -25,6 +25,11 @@ An interactive "to-do" list app where users can input tasks with full CRUD funct
 - #946E83
 - #B4A6AB
 
+<<<<<<< HEAD
+##### Form Builder
+https://react-hook-form.com/form-builder
+
+=======
 ## Time Table
 
 | Component | Priority | Estimated Time | Time Invested | 
@@ -36,3 +41,4 @@ An interactive "to-do" list app where users can input tasks with full CRUD funct
 | Create React Routes | M | 2 hrs|  |
 | Styling | L | 6 hrs| |
 | Total | H |  21 hrs| |
+>>>>>>> 2bef3701108fa287b31807ca79026a5ede096ae6

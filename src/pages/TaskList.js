@@ -1,9 +1,12 @@
 import React from "react"
 import { Link } from 'react-router-dom'
+import Logo from '../components/Logo'
+import "../styles/tasklist.scss"
 
 import Nav from "../components/Nav"
-
-import { prioritySort } from "../functions/prioritySort"
+import Button from "../components/Button"
+import Affirm from "../components/Affirm"
+import ProgBar from "../components/ProgBar"
 
 const TaskList = (props) => {
 
@@ -16,21 +19,29 @@ const TaskList = (props) => {
             props.handleUpdate(input)
         }
         return (
+            
             tasks.map((item,index) => (
+                
                 <li>
-                    <Link to={`/task/${item._id}`}>{item.name}</Link>
-                    <button onClick={() => {resetTimer(item)}}>Did it!</button>
-                </li>                
+
+                    <div className="list1"><Link className="tasklist" to={`/task/${item._id}`}>{item.name}</Link></div>
+                    <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
+                    <ProgBar task={item} width="16" height=".5" color="grey" background="lightgrey"/>
+                </li> 
             ))
+
         )
     }
 
     return (
-        <div>
-            <Nav/>
+        <div className="taskListContainer">
+            <Logo lo="taskListLogo"/>
+            <Nav nav="taskListNav" tasks={props.tasks}/>
+            <h8>Task List </h8>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}
             </ul>
+            <Affirm />
         </div>
     )
 }
