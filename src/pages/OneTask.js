@@ -57,26 +57,26 @@ const OneTask = (props) => {
         }
 
         return (
-                <main>
-                    <h1>{task.name}</h1>
-                    <h2>
-                        Every {dayParse(task.frequency, "")}
-                    </h2>
-                    <p className="lastCompleted">
-                        {((task.lastDone - Date.now())/86400000 + task.frequency) >= 0 && `Next up in ${dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}`}
-                        {((task.lastDone - Date.now())/86400000 + task.frequency) < 0 && `Past due by ${dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}`}
-                    </p>
-                    <ProgBar width="19" task={task} height=".8" />
-                    <div>
-                        <Button className="done-button" handleClick={() => {resetTimer(task)}} text="Done!" />
-                        <br/>
-                        <Link to={`/edit/${task._id}`}><button>Edit / Delete</button></Link>
-                        <Button className="snooze-button" handleClick={() => {setSnoozePop(snoozeForm)}} text="Snooze!" />
-                        {snoozePop}
-                    </div>
-                </main>
-            )
-        }
+            <main>
+                <h1>{task.name}</h1>
+                <h2>
+                    Every {dayParse(task.frequency, "")}
+                </h2>
+                <p className="lastCompleted">
+                    {((task.lastDone - Date.now())/86400000 + task.frequency) >= 0 && `Next up in ${dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}`}
+                    {((task.lastDone - Date.now())/86400000 + task.frequency) < 0 && `Past due by ${dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}`}
+                </p>
+                <ProgBar width="19" task={task} height=".8" />
+                <div>
+                    <Button className="done-button" handleClick={() => {resetTimer(task)}} text="Done!" />
+                    <br/>
+                    <Link to={`/edit/${task._id}`}><button>Edit / Delete</button></Link>
+                    <Button className="snooze-button" handleClick={() => {setSnoozePop(snoozeForm)}} text="Snooze!" />
+                    {snoozePop}
+                </div>
+            </main>
+        )
+    }
 
     const loading = () => {
         return (<div>Loading ...</div>)
@@ -86,8 +86,7 @@ const OneTask = (props) => {
         <div className="oneTask flex-container">
             <Lightbulb lightbulb="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
-            {match.length > 0 ? loaded() : loading()}
-            {match.length === 0 && <Link to="/new" >Add some reminders!</Link>}
+            {match.length > 0 ? loaded() : <Link to="/new" >Add some reminders!</Link>}
             <Affirm />
         </div>
     )
