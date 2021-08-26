@@ -86,7 +86,7 @@ const OneTask = (props) => {
         <div className="oneTask flex-container">
             <Lightbulb lightbulb="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
-            {match.length > 0 ? loaded() : <Link to="/new" >Add some reminders!</Link>}
+            {match.length > 0 ? loaded() : <Link className="prompt" to="/new" >Add some reminders!</Link>}
             <Affirm />
         </div>
     )

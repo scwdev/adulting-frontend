@@ -7,6 +7,16 @@
         width: 10em;
         height: 10em;
     }
+
+    .prompt {
+        padding: 1em;
+        font-size: 1.5em;
+        flex-grow: 2;
+        // text-decoration: none;
+        color: #000;
+        text-align: center;
+    }
+
     main {
         text-align: center;
         flex-grow: 2;
