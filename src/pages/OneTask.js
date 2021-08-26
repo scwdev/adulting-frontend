@@ -49,7 +49,7 @@ const OneTask = (props) => {
                                 <option value="30">Months</option>
                                 <option value="365">Years</option>
                             </select>.
-                            <input className="snooze-submit" type="submit" value="submit" />
+                            <input className="snooze-submit" type="submit" value="Submit" />
                     </form>
                     {errors.number && <p>please enter a positive number</p>}
                 </div>
