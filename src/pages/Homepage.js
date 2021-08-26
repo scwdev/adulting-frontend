@@ -11,7 +11,7 @@ const Homepage = (props) => {
     const topId = props?.tasks[0]?._id
 
     return (
-        <div className="home">
+        <div className="home flex-container">
             <Logo lo="homeLogo"/> 
             <h1>Make <span>#adulting</span> easier!</h1>
             <div className="homeButtonContainer">

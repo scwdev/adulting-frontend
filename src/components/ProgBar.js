@@ -13,7 +13,7 @@ const ProgBar = (props) => {
       }
 
     const progress = progCalc(props.task)
-    const width = props.width
+    const width = parseInt(props.width)
     const height = props.height
     const background = "#9fd8cb"
     const color = "#946e83"
@@ -22,22 +22,24 @@ const ProgBar = (props) => {
         <div className="bar-background" style={{
             backgroundColor: background,
             // border: "1px solid black",
-            width: `${width}em`,
-            height: `${height}em`,
-            borderRadius: "1em"
+            width: width+`rem`,
+            height: `${height}rem`,
+            borderRadius: "1em",
+            zIndex: 1
 
         }}>
-            <span className="bar-progress" style={{
+            <div className="bar-progress" style={{
                 backgroundColor: color,
-                width: `${width * progress}em`,
-                minWidth: ".5em",
+                width: `${width * progress}rem`,
+                minWidth: ".5rem",
                 height: `inherit`,
                 margin: "0px",
                 // border: "1px solid black",
-                position: "absolute",
+                zIndex: 2,
+                // position: "absolute",
                 borderRadius: "inherit"
                 }}>
-            </span>
+            </div>
         </div>
     )
 

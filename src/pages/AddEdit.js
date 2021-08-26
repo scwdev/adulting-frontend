@@ -74,30 +74,32 @@ const AddEdit = (props) => {
   }
 
   return (
-    <div>
-      <div className="logos"><Lightbulb lightbulb="addeditLogo"/></div>
+    <div className="flex-container">
+      <Lightbulb />
       <Nav tasks={props.tasks}/>
-      <form className= "addedit" onSubmit={handleSubmit(addEdit)}>
+      <main className="add-edit-main">
         <h1>Add a Task</h1>
-        <label>I want to
-          <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
-        </label>
-        <label> Every 
-          <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
-          <select className="dropdown" {...register("frequency.multiplier")}>
-            <option value="1" selected={select(1)} >Days</option>
-            <option value="7" selected={select(7)}>Weeks</option>
-            <option value="30" selected={select(30)}>Months</option>
-            <option value="365" selected={select(365)} >Years</option>
-          </select>.
-        </label>
-        <label for="lastDone">I last did that on
-            <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
-        </label>
-        <input className="reminder" type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
-        <Button className="delete-button" handleClick={() => {handleDelete()}} text="Delete" />
-      </form>
-      <div className="addeditaffirm"><Affirm /></div>
+        <form className="addedit-form" onSubmit={handleSubmit(addEdit)}>
+          <label className="form-text" >I want to
+            <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
+          </label>
+          <label className="form-freq" > Every 
+            <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
+            <select className="time-select" {...register("frequency.multiplier")}>
+              <option value="1" selected={select(1)} >Days</option>
+              <option value="7" selected={select(7)}>Weeks</option>
+              <option value="30" selected={select(30)}>Months</option>
+              <option value="365" selected={select(365)} >Years</option>
+            </select>.
+          </label>
+          <label className="form-last" for="lastDone">I last did that on
+              <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
+          </label>
+          <input className="submit-button" type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
+          <Button className="delete-button" handleClick={() => {handleDelete()}} text="Delete" />
+        </form>
+      </main>
+      <Affirm />
     </div>
   );
 }
