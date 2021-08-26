@@ -48,12 +48,12 @@
             }
 
             .iconify {
-                color: yellow;
-                transform: rotate(-30deg);
+                color: vars.$lightgreen;
+                transform: rotate(20deg);
                 font-size: 30px;
                 position: absolute;
-                top: -5%;
-                left: 50%;
+                top: -8%;
+                left: 45%;
             }
         }
 
