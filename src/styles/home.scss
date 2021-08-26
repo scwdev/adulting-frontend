@@ -45,6 +45,17 @@
                 }
             }
 
+            .iconify {
+                color: vars.$lightgreen;
+                transform: rotate(20deg);
+                font-size: 30px;
+                position: absolute;
+                top: -8%;
+                left: 45%;
+            }
+        }
+
+
             .taskListButton{
                 position: relative;
                 background-color: vars.$darkpink;
