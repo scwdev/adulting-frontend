@@ -16,7 +16,7 @@ const ProgBar = (props) => {
     const width = parseInt(props.width)
     const height = props.height
     const background = "#9fd8cb"
-    const color = "#946e83"
+    const color = "#517664"
 
     const bar = (
         <div className="bar-background" style={{

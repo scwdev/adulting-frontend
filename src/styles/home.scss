@@ -53,32 +53,32 @@
                 left: 45%;
             }
         }
+        
+        .taskListButton{
+            position: relative;
+            background-color: vars.$darkpink;
+            border: solid vars.$darkpink 1.5px;
+            transform: rotate(6deg) translateX(1em);
+            z-index: 2;
 
-
-            .taskListButton{
-                position: relative;
-                background-color: vars.$darkpink;
-                border: solid vars.$darkpink 1.5px;
-                transform: rotate(6deg) translateX(1em);
-                z-index: 2;
-
-                &:hover {
-                    transform: rotate(-2deg) translateX(1em);
-                }
+            &:hover {
+                transform: rotate(-2deg) translateX(1em);
             }
-
-            .addTasksButton{
-                position: relative;
-                background-color: vars.$mediumgreen;
-                border: solid vars.$mediumgreen 1.5px;
-                transform: rotate(-6deg) translateX(-0.5em);
-                z-index: 1;
-
-                &:hover {
-                    transform: rotate(2deg) translateX(-0.5em);
-                }
-            }
-            
-            
         }
+
+        .addTasksButton{
+            position: relative;
+            background-color: vars.$mediumgreen;
+            border: solid vars.$mediumgreen 1.5px;
+            transform: rotate(-6deg) translateX(-0.5em);
+            z-index: 1;
+
+            &:hover {
+                transform: rotate(2deg) translateX(-0.5em);
+            }
+        }            
     }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> d254b71a8b532158ad3fd1c7e1129abf38724f55
