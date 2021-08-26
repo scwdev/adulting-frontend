@@ -1,51 +1,62 @@
 @use "./vars.scss";
-
-.addeditLogo {
-    width: 10em;
-    height: 10em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.addedit {
-    display: grid;
-
-    label {
-    margin: 20px auto;
-    }
+.add-edit-main {
+    flex-grow: 2;
 
     h1 {
         font-family: 'Libre Baskerville', serif;
-        align-items: center;
         text-align: center;
         background-color: vars.$darkpink;
         border: solid vars.$darkerpink 2px;
-        font-family: 'Open Sans', sans-serif;
-        margin: .8em;
+        width: 10em;
+        margin: 1em auto 2em auto;
         padding: .8em;
-        border-radius: 5px 20px 5px;
         font-size: 1.5em;
         font-weight: bold;
-        width: 10em;
-        transition: 0.5s;
+        border-radius: 5px 20px 5px;
         box-shadow: 8px 8px 2px 1px #444444;
     }
 
-    .dropdown {
-        box-shadow: 3px 3px 2px 1px #444444;
-        font-family: 'Open Sans', sans-serif;
-        background-color: white;
-    }
+    .addedit-form {
+        display: grid;
+        grid-template-areas: "name name" "freq freq" "last last" "add delete";
+            
+        label {
+            display: flex;
+            align-items: center;
 
-    .reminder {
-    width: 200px;
-    justify-self: center;
-    border: none;
-    box-shadow: 3px 3px 2px 1px #444444;
-    }
-}
+            input, select {
+                flex-grow: 2;
+                background-color: vars.$pinkwhite;
+                height: 1.5em;
+            }
+        }
+    
+        .submit-button, .delete-button {
+            width: 9em;
+            height: 3em;
+            margin: 0.5em;
+            border: 1px solid black; 
+            border-radius: 5px;
+            font-family: 'Libre Bakersville', serif;
+            font-size: 1.2em;
+            background-color: vars.$mediumgreen;
+        }
+        .form-text {
+            grid-area: name;
+        }
+        .form-freq {
+            grid-area: freq;
+        }
+        .form-last {
+            grid-area: last;
+        }
 
-.addeditaffirm {
-    margin-top: 30px;
-    text-align: center;
+        .submit-button {
+            grid-area: add;
+        }
+        .delete-button {
+            grid-area: delete;
+        }
+        
+    }
 }

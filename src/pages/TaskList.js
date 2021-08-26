@@ -24,10 +24,13 @@ const TaskList = (props) => {
             tasks.map((item,index) => (
                 
                 <li>
-
-                    <div className="list1"><Link className="tasklist" to={`/task/${item._id}`}>{item.name}</Link></div>
+                    <div className="task-li">
+                        <Link className="task-link" to={`/task/${item._id}`}>
+                            {item.name}
+                        </Link>
+                    </div>
                     <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
-                    <ProgBar task={item} width="16" height=".5" color="grey" background="lightgrey"/>
+                    <ProgBar task={item} width="16" height=".5"/>
                 </li> 
             ))
 
@@ -35,9 +38,9 @@ const TaskList = (props) => {
     }
 
     return (
-        <div className="taskListContainer">
+        <div className="taskListContainer flex-container">
             <Lightbulb lightbulb="taskListLogo"/>
-            <Nav nav="taskListNav" tasks={props.tasks}/>
+            <Nav tasks={props.tasks}/>
             <h2>Task List </h2>
             <ul>
                 {Array.isArray(tasks) === true ? loaded() : loading()}

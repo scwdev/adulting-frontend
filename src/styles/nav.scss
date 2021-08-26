@@ -6,17 +6,17 @@
     justify-content: space-around;
     align-items: center;
     background-color: vars.$mediumgreen;
-    height: 4em;
+    height: 3rem;
     width: 100%;
     border-bottom: 3px solid #2D3319;
     border-top: 3px solid #2D3319;
 
     .nav-link {
-        padding: .6em;
+        padding: 1rem 0;
         text-decoration: none;
         font-family: 'Libre Baskerville', serif;
         color: black;
-        font-size: 1.1em;
+        font-size: 1.3rem;
         transition-duration: .1s;
 
         &:hover {

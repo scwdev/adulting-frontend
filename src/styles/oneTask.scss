@@ -2,31 +2,40 @@
 
 .oneTask{
     font-family: 'Libre Baskerville', serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     .oneTaskLogo {
         width: 10em;
         height: 10em;
     }
-
-    .lastCompleted{
+    main {
         text-align: center;
-    }
+        flex-grow: 2;
+        
+        h1 {
+            text-decoration: underline;
+        }
 
-    div {
-        margin: 10px;
-    }
-    button{
-        font-family: 'Libre Bakersville', serif;
-        margin: 8px;
-        padding: 5px;
-        font-size: 1em;
-        border: 1px solid black; 
-        border-radius: 5px;
-        background-color: vars.$mediumgreen;
-        width: 4.5em;
+        p {
+            font-size: 1.5em;
+        }
+
+        div.bar-background {
+            margin: 1.5em auto;
+        }
+
+        button{
+            width: 9em;
+            height: 3em;
+            margin: 0.5em;
+            border: 1px solid black; 
+            border-radius: 5px;
+            font-family: 'Libre Bakersville', serif;
+            font-size: 1.2em;
+            background-color: vars.$mediumgreen;
+        }
+
+        .done-button {
+            width: 19em !important;
+        }
     }
 }

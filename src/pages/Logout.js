@@ -11,7 +11,7 @@ const Logout = (props) => {
     }, [])
 
     return (
-        <div>
+        <div className="flex-container">
             <div className="logos"><Logo lo="logoutLogo" /></div>
             
             <div className="loginbox">
