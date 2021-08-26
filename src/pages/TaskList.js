@@ -7,6 +7,7 @@ import Nav from "../components/Nav"
 import Button from "../components/Button"
 import Affirm from "../components/Affirm"
 import ProgBar from "../components/ProgBar"
+import Lightbulb from "../components/Lightbulb"
 
 const TaskList = (props) => {
 
@@ -35,7 +36,7 @@ const TaskList = (props) => {
 
     return (
         <div className="taskListContainer">
-            <Logo lo="taskListLogo"/>
+            <Lightbulb lightbulb="taskListLogo"/>
             <Nav nav="taskListNav" tasks={props.tasks}/>
             <h2>Task List </h2>
             <ul>

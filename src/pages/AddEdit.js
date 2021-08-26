@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import '../styles/addedit.scss'
-import Logo from '../components/Logo'
+import Lightbulb from '../components/Lightbulb'
 
 import Button from '../components/Button';
 import Nav from '../components/Nav';
@@ -75,7 +75,7 @@ const AddEdit = (props) => {
 
   return (
     <div>
-      <div className="logos"><Logo lo="addeditLogo"/></div>
+      <div className="logos"><Lightbulb lightbulb="addeditLogo"/></div>
       <Nav tasks={props.tasks}/>
       <form className= "addedit" onSubmit={handleSubmit(addEdit)}>
         <h1>Add a Task</h1>

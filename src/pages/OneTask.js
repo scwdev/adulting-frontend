@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 
-import "../styles/oneTask.scss"
+import "../styles/oneTask.scss
 
-import Logo from '../components/Logo'
+import Lightbulb from '../components/Lightbulb'
 import Button from '../components/Button'
 import Nav from "../components/Nav"
 import Affirm from "../components/Affirm"
@@ -73,7 +73,6 @@ const OneTask = (props) => {
                     <Link to={`/edit/${task._id}`}><button>Edit</button></Link>
                     <Button className="snooze-button" handleClick={() => {setSnoozePop(snoozeForm)}} text="snooze!" />
                     {snoozePop}
-                    
                 </div>
                 <Affirm />
             </div>
