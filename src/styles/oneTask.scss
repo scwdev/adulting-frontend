@@ -24,18 +24,19 @@
         }
 
         button{
-            width: 9em;
+            width: 9rem;
             height: 3em;
             margin: 0.5em;
             border: 1px solid black; 
             border-radius: 5px;
             font-family: 'Libre Bakersville', serif;
             font-size: 1.2em;
-            background-color: vars.$mediumgreen;
+            background-color: vars.$darkpink;
         }
 
         .done-button {
-            width: 19em !important;
+            width: 19rem !important;
+            background-color: vars.$lightgreen;
         }
     }
 }
