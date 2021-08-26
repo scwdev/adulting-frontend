@@ -1,24 +1,29 @@
-.signInLogo {
-    width: 20em;
-    height: 20em;
-}
+@use './vars.scss';
 
 .signIn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.signInForm{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
-}
-
-.signInForm h2 {
+    .signInLogo {
+        width: 23rem;
+        height: 23rem;
+    }
+    .signInForm{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin: 10px;
+    }
+    .signInForm h2 {
     font-family: 'Libre Baskerville', serif;
+    }
+    .createAcct{
+        text-decoration: none;
+        color: black;
+    }
 }
+
+

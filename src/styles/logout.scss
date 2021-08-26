@@ -1,3 +1,5 @@
+@use './vars.scss';
+
 .logoutLogo {
     width: 10em;
     height: 10em;
@@ -14,8 +16,8 @@
     text-align: center;
     margin: 40px auto;
     width: 150px;
-    background-color: #9fd8cb;
-    border: solid #9fd8cb 1.5px;
+    background-color: vars.$lightpink;
+    border: solid vars.$lightpink 1.5px;
     font-family: 'Open Sans', sans-serif;
     border-radius: 5px 20px 5px;
     font-size: 18px;
