@@ -40,10 +40,20 @@
             font-size: 18px;
             font-weight: bold;
             transition: 0.5s;
+            position: relative;
 
 
             &:hover {
                 transform: scale(1.2);
+            }
+
+            .iconify {
+                color: yellow;
+                transform: rotate(-30deg);
+                font-size: 30px;
+                position: absolute;
+                top: -5%;
+                left: 50%;
             }
         }
 
