@@ -25,16 +25,16 @@
         overflow-y: scroll;
         
         li {
-            display: grid;
-            // height: 100px;
+            display: flex;
+            justify-content: space-between;
             border-top: 1px dashed rgba(0, 0, 0, 0.5);
-            // grid-template-areas: "task task button";
             grid-template-columns: 70% 30%;
             text-align: center;
             padding: .1em 0;
+            align-items: center;
 
             .task-link {
-                // grid-area: task;
+                flex-grow: 1;
                 padding: 1em;
                 cursor: pointer;
                 font-size: 1.2em;
@@ -43,10 +43,9 @@
                 color: black;
             }
         
-            .done-button {    
-                // grid-area: button;
-                width: 4em;
-                height: 2em;
+            .done-button { 
+                width: 85px;
+                height: 25px;
                 margin: 0.5em;
                 border: 1px solid black; 
                 border-radius: 5px;
