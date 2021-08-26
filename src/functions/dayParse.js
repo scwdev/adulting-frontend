@@ -1,6 +1,6 @@
 // this function accepts a Number (of days) and returns an english phrase approximating the length of time that number represents
 
-const dayParse = (days) => {
+const dayParse = (days, a) => {
     const isEss = (input) => {
         if (input > 1 || input === 0) return "s"
         else return ""
@@ -11,7 +11,7 @@ const dayParse = (days) => {
         const y = (days-mod)/365
         const m = Math.round(mod/30)
         return (
-            `${y === 1 ? "" : `${y} `}year${isEss(y)}${m > 0 ? " and " + m + " month" + isEss(m) : ""}`
+            `${y === 1 ? a + "" : `${y} `}year${isEss(y)}${m > 0 ? " and " + m + " month" + isEss(m) : ""}`
         )
     }
     if (days >= 56 && days < 365) {
@@ -19,7 +19,7 @@ const dayParse = (days) => {
         const m = (days-mod)/30
         const w = Math.round(mod/7)
         return (
-            `${m === 1 ? "" : `${m} `}month${isEss(m)}${w > 0 ? " and " + w + " week" + isEss(w) : ""}`
+            `${m === 1 ? a + "" : `${m} `}month${isEss(m)}${w > 0 ? " and " + w + " week" + isEss(w) : ""}`
         )
     }
     if (days >= 11 && days < 56) {
@@ -27,12 +27,17 @@ const dayParse = (days) => {
         const w = (days-mod)/7
         const d = Math.round(mod)
         return (
-            `${w === 1 ? "" : `${w} `}week${isEss(w)}${d > 0 ? " and " + d + " day" + isEss(d) : ""}`
+            `${w === 1 ? a + "" : `${w} `}week${isEss(w)}${d > 0 ? " and " + d + " day" + isEss(d) : ""}`
         )
     }
-    if (days < 11) {
+    if (days < 11 && days !== 0) {
         return (
-            `${days === 1 ? "" : `${days} `}day${isEss(days)}`
+            `${days === 1 ? a + "" : `${days} `}day${isEss(days)}`
+        )
+    }
+    if (days === 0) {
+        return (
+            "day"
         )
     }
 }

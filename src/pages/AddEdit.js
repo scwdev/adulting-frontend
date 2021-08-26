@@ -80,7 +80,7 @@ const AddEdit = (props) => {
       <form className= "addedit" onSubmit={handleSubmit(addEdit)}>
         <h1>Add a Task</h1>
         <label>I want to
-            <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
+          <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
         </label>
         <label> Every 
           <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
