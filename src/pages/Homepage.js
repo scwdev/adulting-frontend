@@ -15,9 +15,9 @@ const Homepage = (props) => {
         <div className="home flex-container">
             <Lightbulb lo="homeLogo"/>
             <div className="homeButtonContainer">
-                <Link to={`task/${topId}`} ><button className="oneTaskButton">If you only have time for one thing...</button></Link>
-                <Link to="/mylist"><button className="taskListButton">Your Task List</button></Link>
-                <Link to="/new"><button className="addTasksButton">Add a New Task</button></Link>
+                <Link to={`task/${topId}`} ><button className="oneTaskButton">I only have time for one thing...</button></Link>
+                <Link to="/mylist"><button className="taskListButton">My Reminders</button></Link>
+                <Link to="/new"><button className="addTasksButton">Add a New Reminder</button></Link>
             </div>
             <Affirm />
         </div>
