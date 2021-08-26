@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/oneTask.scss"
-import Logo from '../components/Logo'
+import Lightbulb from '../components/Lightbulb'
 import Button from '../components/Button'
 
 import Nav from "../components/Nav"
@@ -19,7 +19,7 @@ const OneTask = (props) => {
     return (
         match.map((item, index) => (
         <div className="oneTask">
-            <Logo lo="oneTaskLogo"/>
+            <Lightbulb lightbulb="oneTaskLogo"/>
             <Nav tasks={props.tasks}/>
             <span>My top priority is:</span>
             <h1>{item.name}</h1>
