@@ -2,12 +2,8 @@
 
 .taskListContainer {
 
-    .taskListLogo {
-        width: 10em;
-        height: 10em;
-    }
 
-    h2 {
+    h1 {
         font-family: 'Libre Baskerville', serif;
         text-align: center;
         background-color: vars.$darkpink;
@@ -29,34 +25,34 @@
         overflow-y: scroll;
         
         li {
-            cursor: pointer;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            height: 100px;
-            border-top: 1px solid black;
-            justify-content: space-between;
-        
-            .task-li {
-            width: 100px;
-            }
-        
+            display: grid;
+            // height: 100px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.5);
+            grid-template-areas: "task task button";
+            text-align: center;
+            padding: .1em 0;
+
             .task-link {
-            text-decoration: none;
-            font-size: 15px;
-            color: black;
+                grid-area: task;
+                padding: 1em;
+                cursor: pointer;
+                font-size: 1.2em;
+                font-weight: bold;
+                text-decoration: none;
+                color: black;
             }
         
-            .done-button {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 2px 3px 2px 1px #444444;
-            margin-left: 8px;
-            margin-right: 4px;
-            font-size: 15px;
-            padding: 8px;
-            font-style: 'Open Sans', sans-serif;
-            }       
+            .done-button {    
+                grid-area: button;
+                width: 4em;
+                height: 2em;
+                margin: 0.5em;
+                border: 1px solid black; 
+                border-radius: 5px;
+                font-family: 'Libre Bakersville', serif;
+                font-size: 1.2em;
+                background-color: vars.$mediumgreen;
+            }
         }
     }
 }
