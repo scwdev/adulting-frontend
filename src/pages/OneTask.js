@@ -57,16 +57,14 @@ const OneTask = (props) => {
         }
 
         return (
-            <div className="oneTask flex-container">
-                <Lightbulb lightbulb="oneTaskLogo"/>
-                <Nav tasks={props.tasks}/>
                 <main>
                     <h1>{task.name}</h1>
                     <h2>
                         Every {dayParse(task.frequency, "")}
                     </h2>
                     <p className="lastCompleted">
-                        Next up in {dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}
+                        {((task.lastDone - Date.now())/86400000 + task.frequency) >= 0 && `Next up in ${dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}`}
+                        {((task.lastDone - Date.now())/86400000 + task.frequency) < 0 && `Past due by ${dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}`}
                     </p>
                     <ProgBar width="19" task={task} height=".8" />
                     <div>
@@ -77,8 +75,6 @@ const OneTask = (props) => {
                         {snoozePop}
                     </div>
                 </main>
-                <Affirm />
-            </div>
             )
         }
 
@@ -87,7 +83,13 @@ const OneTask = (props) => {
     }
 
     return (
-        match.length > 0 ? loaded() : loading()
+        <div className="oneTask flex-container">
+            <Lightbulb lightbulb="oneTaskLogo"/>
+            <Nav tasks={props.tasks}/>
+            {match.length > 0 ? loaded() : loading()}
+            {match.length === 0 && <Link to="/new" >Add some reminders!</Link>}
+            <Affirm />
+        </div>
     )
 }
 

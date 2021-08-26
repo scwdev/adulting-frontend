@@ -78,7 +78,7 @@ const AddEdit = (props) => {
       <Lightbulb />
       <Nav tasks={props.tasks}/>
       <main className="add-edit-main">
-        <h1>Add a Task</h1>
+        <h1>Add a Reminder</h1>
         <form className="addedit-form" onSubmit={handleSubmit(addEdit)}>
           <label className="form-text" >I want to
             <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
