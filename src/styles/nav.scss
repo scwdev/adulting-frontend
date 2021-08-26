@@ -3,7 +3,7 @@
 .nav {
     display: flex;
     text-align: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     background-color: vars.$mediumgreen;
     height: 3rem;
@@ -16,7 +16,7 @@
         text-decoration: none;
         font-family: 'Libre Baskerville', serif;
         color: black;
-        font-size: 1.3rem;
+        font-size: 1rem;
         transition-duration: .1s;
 
         &:hover {

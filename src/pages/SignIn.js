@@ -40,7 +40,7 @@ const SignIn = (props) => {
         {errors.password && <p>please enter a password</p>}
         <input type="submit" />
       </form>
-      <Link to="/sign-up">Create a new account!</Link>
+      <Link className="createAcct"to="/sign-up">Create a new account!</Link>
     </div>
   );
 }
