@@ -60,7 +60,7 @@ const Affirm = (props) => {
 
     return (
         <div className="affirmation">
-            "{getAff()}" - Abraham Lincoln
+            {getAff()}
         </div>
         )
 }

@@ -12,39 +12,37 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
-    
-    h1 {
-       text-align: center;
-       font-family: 'Libre Baskerville', serif;
-       margin: 8px;
-
-       span {
-           font-style: italic;
-       }
-    }
 
     .homeButtonContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
 
-    a {
-        button {
-            font-family: 'Open Sans', sans-serif;
-            height: 8em;
-            width: 8em;
-            padding:1em;
-            box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-            margin: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.5s;
-            position: relative;
+        a {
+            button {
+                width: 20vh;
+                height: 20vh;
+                padding: 1rem;
+                box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+                font-family: 'Open Sans', sans-serif;
+                font-size: 2.5vh;
+                font-weight: bold;
+                // margin: 20px;
+                transition-duration: 0.2s;
+    
+                
+            }
 
+            .oneTaskButton{
+                position: relative;
+                background-color: vars.$lightgreen;
+                border: solid vars.$lightgreen 1.5px;
+                transform: rotate(-6deg);
+                z-index: 3 !important;
 
-            &:hover {
-                transform: scale(1.2);
+                &:hover {
+                    transform: rotate(2deg);
+                }
             }
 
             .iconify {
@@ -57,22 +55,32 @@
             }
         }
 
-        .addTasksButton{
-            background-color: vars.$mediumgreen;
-            border: solid vars.$mediumgreen 1.5px;
-            transform: rotate(-6deg);
-        }
-        
-        .taskListButton{
-            background-color: vars.$darkpink;
-            border: solid vars.$darkpink 1.5px;
-            transform: rotate(6deg);
-        }
-        
-        .oneTaskButton{
-            background-color: vars.$lightgreen;
-            border: solid vars.$lightgreen 1.5px;
-            transform: rotate(-6deg);
+
+            .taskListButton{
+                position: relative;
+                background-color: vars.$darkpink;
+                border: solid vars.$darkpink 1.5px;
+                transform: rotate(6deg) translateX(1em);
+                z-index: 2;
+
+                &:hover {
+                    transform: rotate(-2deg) translateX(1em);
+                }
+            }
+
+            .addTasksButton{
+                position: relative;
+                background-color: vars.$mediumgreen;
+                border: solid vars.$mediumgreen 1.5px;
+                transform: rotate(-6deg) translateX(-0.5em);
+                z-index: 1;
+
+                &:hover {
+                    transform: rotate(2deg) translateX(-0.5em);
+                }
+            }
+            
+            
         }
     }
 }
