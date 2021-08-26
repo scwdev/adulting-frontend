@@ -1,7 +1,7 @@
 @use './vars.scss';
 
 .taskListContainer {
-
+    font-family: 'Libre Baskerville', serif;
 
     h1 {
         font-family: 'Libre Baskerville', serif;
@@ -19,8 +19,8 @@
     }
 
     .prompt {
-        padding: 1em;
-        font-size: 1.5em;
+        padding: 1rem;
+        font-size: 1.5rem;
         flex-grow: 2;
         // text-decoration: none;
         color: #000;
