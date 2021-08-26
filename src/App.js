@@ -3,6 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import Nav from './components/Nav'
 
 import './App.css';
+import "./styles/flex.scss"
 
 import Homepage from './pages/Homepage';
 import SignIn from './pages/SignIn';

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 
-import "../styles/oneTask.scss
+import "../styles/oneTask.scss"
 
 import Lightbulb from '../components/Lightbulb'
 import Button from '../components/Button'
@@ -57,23 +57,26 @@ const OneTask = (props) => {
         }
 
         return (
-            <div className="oneTask">
-                <Logo lo="oneTaskLogo"/>
+            <div className="oneTask flex-container">
+                <Lightbulb lightbulb="oneTaskLogo"/>
                 <Nav tasks={props.tasks}/>
-                <h1>{task.name}</h1>
-                <div className="lastCompleted">
-                    Next: in {dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}
-                </div>
-                <div>
-                    Frequency: Every {dayParse(task.frequency, "")}
-                </div>
-                <ProgBar task={task} width="10" height="1" color="grey" background="lightgrey"/>
-                <div>
-                    <Button className="done-button" handleClick={() => {resetTimer(task)}} text="Done!" />
-                    <Link to={`/edit/${task._id}`}><button>Edit</button></Link>
-                    <Button className="snooze-button" handleClick={() => {setSnoozePop(snoozeForm)}} text="snooze!" />
-                    {snoozePop}
-                </div>
+                <main>
+                    <h1>{task.name}</h1>
+                    <h2>
+                        Every {dayParse(task.frequency, "")}
+                    </h2>
+                    <p className="lastCompleted">
+                        Next up in {dayParse(Math.round((task.lastDone - Date.now())/86400000 + task.frequency), "a ")}
+                    </p>
+                    <ProgBar width="19" task={task} height=".8" />
+                    <div>
+                        <Button className="done-button" handleClick={() => {resetTimer(task)}} text="Done!" />
+                        <br/>
+                        <Link to={`/edit/${task._id}`}><button>Edit / Delete</button></Link>
+                        <Button className="snooze-button" handleClick={() => {setSnoozePop(snoozeForm)}} text="Snooze!" />
+                        {snoozePop}
+                    </div>
+                </main>
                 <Affirm />
             </div>
             )

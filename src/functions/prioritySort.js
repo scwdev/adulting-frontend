@@ -8,6 +8,9 @@ const prioritySort = (array) => {
   // sorts by dividing the desired frequency by the amount of time since last occurence
   array.sort((a,b) => (msDays(a.frequency)/elapsed(a.lastDone) > msDays(b.frequency)/elapsed(b.lastDone)) ? 1 : -1)
   
+  // TODO filter into two Arrs, one that hasn't passed, and one that has.
+  // sort each Arr, recombine
+
   return array
 }
 
