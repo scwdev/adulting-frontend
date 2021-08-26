@@ -44,7 +44,7 @@ const SignUp = (props) => {
         <input type="text" placeholder="Name (optional)" {...register("name")} />
         <input type="submit" />
       </form>
-      <Link to="/">Already have an account?</Link>
+      <Link className="createAcct" to="/">Already have an account?</Link>
     </div>
   );
 }

@@ -11,7 +11,7 @@ const Nav = (props) => {
             <Link className="nav-link" to="/mylist">My List</Link>
             <Link className="nav-link" to={`/task/${topId}`}>What's Next?</Link>            
             <Link className="nav-link" to="/new">New Reminder</Link>
-            <Link className="nav-link" to="/logout">Logout</Link>
+            <Link className="nav-link" to="/logout">Log Out</Link>
         </div>
     )
 }

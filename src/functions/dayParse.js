@@ -14,7 +14,7 @@ const dayParse = (days, a) => {
             `${y === 1 ? a + "" : `${y} `}year${isEss(y)}${m > 0 ? " and " + m + " month" + isEss(m) : ""}`
         )
     }
-    if (days >= 56 && days < 365) {
+    if (days >= 30 && days < 365) {
         const mod = days%30
         const m = (days-mod)/30
         const w = Math.round(mod/7)
@@ -22,7 +22,7 @@ const dayParse = (days, a) => {
             `${m === 1 ? a + "" : `${m} `}month${isEss(m)}${w > 0 ? " and " + w + " week" + isEss(w) : ""}`
         )
     }
-    if (days >= 11 && days < 56) {
+    if (days >= 11 && days < 30) {
         const mod = days%7
         const w = (days-mod)/7
         const d = Math.round(mod)

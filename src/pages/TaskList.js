@@ -20,19 +20,19 @@ const TaskList = (props) => {
             props.handleUpdate(input)
         }
         return (
-            
-            tasks.map((item,index) => (
-                
-                <li>
-                    <div className="task-li">
+            <>
+            <h1>My Reminders </h1>
+            <ul>
+                {tasks.map((item,index) => (    
+                    <li>
                         <Link className="task-link" to={`/task/${item._id}`}>
                             {item.name}
                         </Link>
-                    </div>
-                    <div><Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" /></div>
-                    <ProgBar task={item} width="16" height=".5"/>
-                </li> 
-            ))
+                        <Button className="done-button" handleClick={() => {resetTimer(item)}} text="Done!" />
+                    </li> 
+                ))}
+            </ul>
+            </>
 
         )
     }
@@ -41,10 +41,7 @@ const TaskList = (props) => {
         <div className="taskListContainer flex-container">
             <Lightbulb lightbulb="taskListLogo"/>
             <Nav tasks={props.tasks}/>
-            <h2>Task List </h2>
-            <ul>
-                {Array.isArray(tasks) === true ? loaded() : loading()}
-            </ul>
+                {tasks.length > 0 ? loaded(): <Link className="prompt" to="/new" >Add some reminders!</Link>}
             <Affirm />
         </div>
     )

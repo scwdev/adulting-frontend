@@ -6,7 +6,7 @@
         font-family: 'Libre Baskerville', serif;
         text-align: center;
         background-color: vars.$darkpink;
-        border: solid vars.$darkerpink 2px;
+       // border: solid 2px;
         width: 10em;
         margin: 1em auto 2em auto;
         padding: .8em;
@@ -26,20 +26,20 @@
 
             input, select {
                 flex-grow: 2;
-                background-color: vars.$pinkwhite;
+                background-color: white;
                 height: 1.5em;
             }
         }
     
         .submit-button, .delete-button {
-            width: 9em;
+            width: 6.1em;
             height: 3em;
-            margin: 0.5em;
+            margin: 1em;
             border: 1px solid black; 
             border-radius: 5px;
             font-family: 'Libre Bakersville', serif;
             font-size: 1.2em;
-            background-color: vars.$mediumgreen;
+            background-color: vars.$darkpink;
         }
         .form-text {
             grid-area: name;

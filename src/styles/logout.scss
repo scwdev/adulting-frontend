@@ -1,27 +1,28 @@
+@use './vars.scss';
+
 .logoutLogo {
-    width: 10em;
-    height: 10em;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 23em;
+    height: 23em;
+
+
 
 }
 
 .logos {
     text-align: center;
+
+    
 }
 
 .loginbox {
     text-align: center;
-    margin: 40px auto;
+    margin: 30px auto;
     width: 150px;
-    background-color: #9fd8cb;
-    border: solid #9fd8cb 1.5px;
-    font-family: 'Open Sans', sans-serif;
-    border-radius: 5px 20px 5px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.5s;
-    box-shadow: 8px 8px 2px 1px #444444;
+    border: 1px solid black; 
+    border-radius: 5px;
+    font-family: 'Libre Bakersville', serif;
+    font-size: 1.2em;
+    background-color: vars.$darkpink;
     padding: 20px;
 }
 
