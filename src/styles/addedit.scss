@@ -1,0 +1,51 @@
+@use "./vars.scss";
+
+.addeditLogo {
+    width: 10em;
+    height: 10em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.addedit {
+    display: grid;
+
+    label {
+    margin: 20px auto;
+    }
+
+    h1 {
+        font-family: 'Libre Baskerville', serif;
+        align-items: center;
+        text-align: center;
+        background-color: vars.$darkpink;
+        border: solid vars.$darkerpink 2px;
+        font-family: 'Open Sans', sans-serif;
+        margin: .8em;
+        padding: .8em;
+        border-radius: 5px 20px 5px;
+        font-size: 1.5em;
+        font-weight: bold;
+        width: 10em;
+        transition: 0.5s;
+        box-shadow: 8px 8px 2px 1px #444444;
+    }
+
+    .dropdown {
+        box-shadow: 3px 3px 2px 1px #444444;
+        font-family: 'Open Sans', sans-serif;
+        background-color: white;
+    }
+
+    .reminder {
+    width: 200px;
+    justify-self: center;
+    border: none;
+    box-shadow: 3px 3px 2px 1px #444444;
+    }
+}
+
+.addeditaffirm {
+    margin-top: 30px;
+    text-align: center;
+}

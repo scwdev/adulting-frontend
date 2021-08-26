@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import '../styles/addedit.scss'
+import Lightbulb from '../components/Lightbulb'
 
+import Button from '../components/Button';
 import Nav from '../components/Nav';
 import Affirm from "../components/Affirm"
 
@@ -62,34 +65,39 @@ const AddEdit = (props) => {
     } 
   }
 
+  const handleDelete = () => {
+    window.confirm("Are you sure you want to delete this reminder?")
+    if (initial !== "") {
+      props.handleDelete(initial)
+    }
+    props.history.push("/")
+  }
+
   return (
     <div>
+      <div className="logos"><Lightbulb lightbulb="addeditLogo"/></div>
       <Nav tasks={props.tasks}/>
-      <form onSubmit={handleSubmit(addEdit)}>
+      <form className= "addedit" onSubmit={handleSubmit(addEdit)}>
+        <h1>Add a Task</h1>
         <label>I want to
           <input type="text" defaultValue={initial.name} placeholder="do a thing" {...register("name", {required: true})} />
         </label>
-        <br />
-        <label>
-          Every 
+        <label> Every 
           <input type="number" defaultValue={initial?.frequency?.number} placeholder="42" {...register("frequency.number", {required: true})} />
-          <select {...register("frequency.multiplier")}>
+          <select className="dropdown" {...register("frequency.multiplier")}>
             <option value="1" selected={select(1)} >Days</option>
             <option value="7" selected={select(7)}>Weeks</option>
             <option value="30" selected={select(30)}>Months</option>
             <option value="365" selected={select(365)} >Years</option>
           </select>.
         </label>
-        <br />
         <label for="lastDone">I last did that on
-          <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
+            <input type="date" defaultValue={isoParse(initial.lastDone)} placeholder="datetime" {...register("lastDone", {})} />
         </label>
-        <br />
-        {/* <input type="text" {...register("checklist")}/> */}
-        <br />
-        <input type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
+        <input className="reminder" type="submit" value={initial === "" ? "Set Reminder" : "Update"} />
+        <Button className="delete-button" handleClick={() => {handleDelete()}} text="Delete" />
       </form>
-      <Affirm />
+      <div className="addeditaffirm"><Affirm /></div>
     </div>
   );
 }

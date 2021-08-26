@@ -8,10 +8,10 @@ const Nav = (props) => {
 
     return (
         <div className="nav">
-            <Link to="/mylist"><span>My Task List</span></Link>
-            <Link to={`/task/${topId}`}><span>One Thing</span></Link>            
-            <Link to="/new"><span>New Task</span></Link>
-            <Link to="/logout"><span>Logout</span></Link>
+            <Link className="nav-link" to="/mylist">My List</Link>
+            <Link className="nav-link" to={`/task/${topId}`}>Priority</Link>            
+            <Link className="nav-link" to="/new">New Task</Link>
+            <Link className="nav-link" to="/logout">Logout</Link>
         </div>
     )
 }

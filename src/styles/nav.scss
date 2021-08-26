@@ -1,21 +1,28 @@
-$mediumgreen: #517664;
+@use "./vars.scss";
 
+.nav {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    background-color: vars.$mediumgreen;
+    height: 4em;
+    width: 100%;
+    border-bottom: 3px solid #2D3319;
+    border-top: 3px solid #2D3319;
 
-.nav span{
-    font-family: 'Libre Baskerville', serif;
-    margin: 10px;
-    color: black;
-    font-size: 1em;
+    .nav-link {
+        padding: .6em;
+        text-decoration: none;
+        font-family: 'Libre Baskerville', serif;
+        color: black;
+        font-size: 1.1em;
+        transition-duration: .1s;
+
+        &:hover {
+           transform: scale(1.1);
+        }
+    }
 }
- a {
-     text-decoration: none;
- }
 
- .nav {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     background-color: $mediumgreen;
-     height: 3em;
-     width: 100%;
- }
+

@@ -22,17 +22,6 @@ const url = "https://adulting-backend.herokuapp.com";
 const [ tasks, setTasks ] = useState([]);
 const [ authZ, setAuthZ ] = useState({username: null, token: null})
 
-// const emptyTask = {
-//   username: "",
-//   name: "",
-//   frequency: "",
-//   countdown: "",
-//   tags: "",
-//   checklist: ""
-// };
-
-// const [selectedTask, setSelectedTask] = React.useState(emptyTask);
-
 // GET
 const getTasks = async () => {
   const response = await fetch(url + "/tasks", {
@@ -49,16 +38,6 @@ useEffect(async () => {
     await getTasks()
   }
 }, [authZ]);
-
-const getOneTask = async (input) => {
-  const response = await fetch(url + "/tasks/" + input, {
-    headers: {
-      "authorization": `bearer ${authZ.token}`
-    }
-  })
-  const data = await response.json()
-  return data
-};
 
 // CREATE
 const handleCreate = (newTask) => {
@@ -112,9 +91,9 @@ const logCheck = () => {
           {/* homepage */}
           <Route exact path="/" render={(rp) => (<Homepage {...rp} tasks={tasks}/>)} />
           {/* taskList */}
-          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} handleDelete={handleDelete} />)} />
+          <Route path="/mylist" render={() => (<TaskList tasks={tasks} handleUpdate={handleUpdate} />)} />
           {/* single task */}
-          <Route path="/task/:id" render={(rp) => (<OneTask {...rp} tasks={tasks} getOneTask={getOneTask} handleDelete={handleDelete}/>)} />
+          <Route path="/task/:id" render={(rp) => (<OneTask {...rp} tasks={tasks} handleUpdate={handleUpdate}/>)} />
           {/* update existing task */}
           <Route path="/edit/:id" render={(rp) => (<AddEdit {...rp} username={authZ.username} tasks={tasks} handleCreate={handleCreate} handleUpdate={handleUpdate} handleDelete={handleDelete}/>)} />
           {/* create new task */}

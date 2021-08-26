@@ -5,7 +5,6 @@ const ProgBar = (props) => {
     const progCalc = (task) => {
         const elapsed = Date.now()-task.lastDone
         const msDays = task.frequency * 86400000
-        console.log(elapsed/msDays)
         // const progress = () => {
             if (elapsed/msDays > 1) return 1
             else return elapsed/msDays
@@ -16,8 +15,8 @@ const ProgBar = (props) => {
     const progress = progCalc(props.task)
     const width = props.width
     const height = props.height
-    const background = props.background
-    const color = props.color
+    const background = "#9fd8cb"
+    const color = "#946e83"
 
     const bar = (
         <div className="bar-background" style={{
@@ -31,6 +30,7 @@ const ProgBar = (props) => {
             <span className="bar-progress" style={{
                 backgroundColor: color,
                 width: `${width * progress}em`,
+                minWidth: ".5em",
                 height: `inherit`,
                 margin: "0px",
                 // border: "1px solid black",

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 import Affirm from "../components/Affirm"
 import Logo from "../components/Logo"
+import '../styles/logout.scss'
 
 const Logout = (props) => {
     useEffect( async () => {
@@ -11,11 +12,15 @@ const Logout = (props) => {
 
     return (
         <div>
-            <Logo />
-            <Affirm />
-            <Link to="/">
+            <div className="logos"><Logo lo="logoutLogo" /></div>
+            
+            <div className="loginbox">
+            <Link className="logbackin" to="/">
                 Log back in!
             </Link>
+            </div>
+
+            <Affirm />
         </div>
     )
 }
