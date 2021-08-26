@@ -5,8 +5,8 @@
     align-items: center;
 }
 .logo {
-    width: 20em;
-    height: 20em;
+    width: 23em;
+    height: 23em;
 }
 .form {
     display: flex;
@@ -23,4 +23,9 @@ input {
 .signUp h2 {
     margin-top: 20px;
     font-family: 'Libre Baskerville', serif;
+}
+
+.createAcct{
+    text-decoration: none;
+    color: black;
 }
